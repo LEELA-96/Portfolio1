@@ -131,11 +131,28 @@
   .meta { margin-top:auto; color:var(--muted); font-weight:700 }
 
   /* Education / Certifications layout */
-  .edu-cert { display:flex; gap:28px; align-items:flex-start; margin-top:8px; }
+  .edu-cert { display:flex; gap:28px; align-items:flex-start; margin-top:8px; position: relative; }
   .edu, .certs { flex:1; min-width:260px }
   .edu li { list-style:none; margin-bottom:12px; font-weight:800; color:#0b2b44 }
   .edu small { display:block; font-weight:700; color:var(--muted); margin-top:6px }
   .cert { background:#f7fbff; padding:12px 14px; border-radius:10px; margin-bottom:10px; font-weight:800; color:#083a68; border:1px solid rgba(6,12,20,0.03) }
+
+  /* SVG pipeline icon container */
+  .pipeline-icon {
+    width: 60px;
+    height: 140px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pipeline-icon svg {
+    width: 48px;
+    height: 140px;
+    fill: #6b7280;
+    opacity: 0.28;
+    filter: drop-shadow(0 0 3px rgba(107, 114, 128, 0.14));
+  }
 
   /* Contact iframe */
   .contact-frame { border-radius:12px; overflow:hidden; border:1px solid rgba(6,12,20,0.035); box-shadow:0 12px 36px rgba(6,18,36,0.05) }
@@ -146,6 +163,7 @@
     .left { left:18px; top:18px; bottom:18px; width:300px }
     .right { margin-left: calc(300px + 46px) }
     .exp-card { flex:0 0 620px }
+    .pipeline-icon { display:none }
   }
   @media (max-width:720px){
     .app { flex-direction:column; gap:14px }
@@ -154,6 +172,7 @@
     .exp-row { flex-direction:column; min-width:unset }
     .exp-card { width:100% }
     .edu-cert { flex-direction:column }
+    .pipeline-icon { display:none }
   }
 
   /* small focus style for accessibility */
@@ -168,7 +187,7 @@
   <aside class="left" aria-label="Profile">
     <div>
       <div class="name">Leela Prasad A</div>
-      <div class="title">Senior AI/ML Engineer – AWS Certified | Dallas, TX</div>
+      <div class="title">Senior AI/ML Engineer – AWS Certified</div>
     </div>
 
     <div class="contact" aria-label="Contact">
@@ -238,102 +257,20 @@
           <div class="chip"><i class="fa-solid fa-network-wired"></i> QLoRA</div>
           <div class="chip"><i class="fa-solid fa-gears"></i> PEFT</div>
           <div class="chip"><i class="fa-brands fa-openai"></i> OpenAI GPT-4/3.5</div>
-          <div class="chip"><i class="fa-solid fa-brain"></i> Anthropic LLMs</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> Amazon Bedrock</div>
+          <div class="chip"><i class="fa-solid fa-brain"></i> Anthropic Claude</div>
         </div>
       </details>
 
       <details>
-        <summary>Programming Languages</summary>
+        <summary>Cloud & DevOps</summary>
         <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-brands fa-python"></i> Python</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> SQL</div>
-          <div class="chip"><i class="fa-brands fa-js"></i> JavaScript</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>Development Tools</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-solid fa-book-open"></i> Jupyter</div>
-          <div class="chip"><i class="fa-brands fa-python"></i> PyCharm</div>
-          <div class="chip"><i class="fa-solid fa-code"></i> DataSpell</div>
-          <div class="chip"><i class="fa-solid fa-server"></i> FastAPI</div>
-          <div class="chip"><i class="fa-solid fa-flask"></i> Flask</div>
-          <div class="chip"><i class="fa-solid fa-network-wired"></i> REST API</div>
-          <div class="chip"><i class="fa-brands fa-jenkins"></i> Jenkins</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> AWS (S3, EC2, Lambda, SageMaker, EKS)</div>
+          <div class="chip"><i class="fa-brands fa-microsoft"></i> Azure AKS</div>
           <div class="chip"><i class="fa-brands fa-docker"></i> Docker</div>
-          <div class="chip"><i class="fa-brands fa-kubernetes"></i> Kubernetes (EKS/AKS)</div>
-          <div class="chip"><i class="fa-solid fa-wrench"></i> Terraform</div>
-          <div class="chip"><i class="fa-brands fa-git-alt"></i> Git</div>
-          <div class="chip"><i class="fa-solid fa-chart-line"></i> MLflow</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>MLOps & LLMOps</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-brands fa-aws"></i> AWS SageMaker</div>
-          <div class="chip"><i class="fa-brands fa-microsoft"></i> Azure ML</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> Databricks</div>
-          <div class="chip"><i class="fa-solid fa-code-branch"></i> CI/CD Pipelines (Jenkins / GitHub Actions)</div>
-          <div class="chip"><i class="fa-solid fa-cubes"></i> Kubeflow</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>Data Engineering</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-brands fa-java"></i> Apache Spark</div>
-          <div class="chip"><i class="fa-solid fa-microphone-lines"></i> Apache Kafka</div>
-          <div class="chip"><i class="fa-solid fa-wind"></i> Apache Airflow</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> AWS Glue</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> AWS Kinesis</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> PostgreSQL</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> MySQL</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> MS SQL Server</div>
-          <div class="chip"><i class="fa-solid fa-search"></i> Amazon OpenSearch</div>
-          <div class="chip"><i class="fa-solid fa-search"></i> Elasticsearch</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>Mathematics & Statistics</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-solid fa-percent"></i> Probability</div>
-          <div class="chip"><i class="fa-solid fa-chart-column"></i> Statistics</div>
-          <div class="chip"><i class="fa-solid fa-vector-square"></i> Linear Algebra</div>
-          <div class="chip"><i class="fa-solid fa-square-root-variable"></i> Calculus</div>
-          <div class="chip"><i class="fa-solid fa-clock"></i> Time Series (ARIMA / SARIMA / Prophet / LSTM)</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>AWS Cloud Services</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-brands fa-aws"></i> SageMaker</div>
-          <div class="chip"><i class="fa-solid fa-cloud-arrow-up"></i> S3</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> RDS</div>
-          <div class="chip"><i class="fa-solid fa-database"></i> DynamoDB</div>
-          <div class="chip"><i class="fa-solid fa-cogs"></i> Step Functions</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> Glue</div>
-          <div class="chip"><i class="fa-solid fa-magnifying-glass"></i> Athena</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> Redshift</div>
-          <div class="chip"><i class="fa-brands fa-aws"></i> QuickSight</div>
-          <div class="chip"><i class="fa-solid fa-lambda"></i> Lambda</div>
-          <div class="chip"><i class="fa-solid fa-id-badge"></i> IAM</div>
-          <div class="chip"><i class="fa-solid fa-eye"></i> CloudWatch</div>
-          <div class="chip"><i class="fa-solid fa-server"></i> EC2</div>
-          <div class="chip"><i class="fa-solid fa-hdd"></i> EBS / EFS</div>
-          <div class="chip"><i class="fa-solid fa-code-branch"></i> CodeCommit / CodeBuild / CodeDeploy</div>
-        </div>
-      </details>
-
-      <details>
-        <summary>Operating Systems</summary>
-        <div class="skill-list" aria-hidden="true">
-          <div class="chip"><i class="fa-brands fa-windows"></i> Windows</div>
-          <div class="chip"><i class="fa-brands fa-linux"></i> Linux</div>
+          <div class="chip"><i class="fa-brands fa-kubernetes"></i> Kubernetes (EKS, AKS)</div>
+          <div class="chip"><i class="fa-solid fa-code-branch"></i> GitHub Actions</div>
+          <div class="chip"><i class="fa-solid fa-gears"></i> Jenkins</div>
+          <div class="chip"><i class="fa-solid fa-cubes"></i> Terraform</div>
         </div>
       </details>
 
@@ -341,103 +278,104 @@
 
     <!-- EXPERIENCE -->
     <section class="card" id="experience">
-      <h2 class="section-title">Experience</h2>
-      <div class="exp-wrapper" tabindex="0" aria-label="Experience scroller">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="exp-wrapper" tabindex="0" aria-label="Experience scrollable cards">
         <div class="exp-row">
 
-          <!-- Fidelity -->
-          <article class="exp-card" aria-labelledby="fid">
-            <div class="company" id="fid">Fidelity Investments</div>
-            <div class="role">Senior ML Engineer (ECCP) | May 2024 – Present</div>
-            <div class="bullets">
-              <ul>
-                <li>Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.</li>
-                <li>Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.</li>
-                <li>Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.</li>
-              </ul>
-            </div>
-            <div class="meta">Hybrid-cloud RAG • LLM fine-tuning • Scalable ingestion</div>
+          <article class="exp-card" aria-label="Senior Machine Learning Engineer at Fidelity Investments">
+            <div class="company">Fidelity Investments</div>
+            <div class="role">Senior Machine Learning Engineer (Jan 2023 – Present)</div>
+            <ul class="bullets">
+              <li>Designed and deployed a Retrieval-Augmented Generation (RAG) platform that improved semantic search recall by 30% and reduced hallucinations in LLM responses by 25%.</li>
+              <li>Fine-tuned GPT-4/3.5 and Anthropic models using LoRA and PEFT, reducing model inference costs by 40% while improving contextual relevance.</li>
+              <li>Integrated vector databases like Amazon OpenSearch and Pinecone, boosting query resolution speed by 40% on millions of documents.</li>
+              <li>Led end-to-end MLOps for AI microservices with CI/CD pipelines in Jenkins and Terraform on AWS EKS, achieving 99.9% uptime and auto-scaling.</li>
+              <li>Collaborated with cross-functional teams to architect real-time data ingestion pipelines reducing latency from 6 hours to under 10 minutes.</li>
+            </ul>
+            <div class="meta">Austin, TX</div>
           </article>
 
-          <!-- Teladoc -->
-          <article class="exp-card" aria-labelledby="tel">
-            <div class="company" id="tel">Teladoc Health</div>
-            <div class="role">ML Engineer | Jul 2021 – Aug 2022</div>
-            <div class="bullets">
-              <ul>
-                <li>Enhanced virtual health assistant AI, raising satisfaction scores 25%.</li>
-                <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.</li>
-                <li>Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.</li>
-              </ul>
-            </div>
-            <div class="meta">Clinical NLP • MLOps • Monitoring</div>
-          </article>
-
-          <!-- DataBeat -->
-          <article class="exp-card" aria-labelledby="db">
-            <div class="company" id="db">DataBeat</div>
-            <div class="role">Data Engineer | Jun 2019 – Jun 2021</div>
-            <div class="bullets">
-              <ul>
-                <li>Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.</li>
-                <li>Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.</li>
-                <li>Developed real-time ingestion workflows enabling instant search ranking updates.</li>
-              </ul>
-            </div>
-            <div class="meta">Realtime ETL • Search relevance • High-throughput pipelines</div>
-          </article>
-
-          <!-- iLink -->
-          <article class="exp-card" aria-labelledby="il">
-            <div class="company" id="il">iLink Digital</div>
-            <div class="role">Python Developer | May 2017 – May 2019</div>
-            <div class="bullets">
-              <ul>
-                <li>Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.</li>
-                <li>Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.</li>
-                <li>Developed ETL workflows with indexing/caching, improving query performance 70%.</li>
-              </ul>
-            </div>
-            <div class="meta">Automation • APIs • ETL & Indexing</div>
+          <article class="exp-card" aria-label="Machine Learning Engineer at HealthTech Solutions">
+            <div class="company">HealthTech Solutions</div>
+            <div class="role">Machine Learning Engineer (May 2019 – Dec 2022)</div>
+            <ul class="bullets">
+              <li>Developed NLP models to extract medical entities from clinical notes with 94% accuracy, improving EMR data usability.</li>
+              <li>Implemented explainable AI methods to enhance model interpretability for healthcare providers.</li>
+              <li>Built data pipelines to process 10 million+ records per month, enabling scalable model retraining workflows.</li>
+              <li>Deployed AI models on Azure AKS clusters with GPU acceleration and monitoring for critical healthcare applications.</li>
+            </ul>
+            <div class="meta">Remote</div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION & CERTIFICATES -->
+    <!-- EDUCATION & CERTIFICATIONS with pipeline icon between -->
     <section class="card" id="education">
       <h2 class="section-title">Education & Certifications</h2>
-      <div class="edu-cert">
-        <div class="edu" aria-label="Education">
-          <h3 style="margin:0 0 10px 0;color:var(--primary)">Education</h3>
+
+      <div class="edu-cert" role="list">
+
+        <div class="edu" role="listitem" aria-label="Education">
           <ul>
-            <li>MS, Computer Science <small>University of North Texas</small></li>
+            <li>
+              <strong>Master of Science in Computer Science</strong><br />
+              University of North Texas<br />
+              <small>Graduated 2018</small>
+            </li>
+            <li>
+              <strong>Bachelor of Technology in Computer Science</strong><br />
+              Jawaharlal Nehru Technological University<br />
+              <small>Graduated 2015</small>
+            </li>
+            <li>
+              <strong>AI for health care</strong><br />
+              (AI for health care - Stanford University)
+            </li>
           </ul>
         </div>
 
-        <div class="certs" aria-label="Certifications">
-          <h3 style="margin:0 0 10px 0;color:var(--primary)">Certifications</h3>
-          <div class="cert">AWS ML Specialty — Amazon</div>
-          <div class="cert">Azure AI Associate — Microsoft</div>
-          <div class="cert">Generative AI — DeepLearning.AI</div>
-          <div class="cert">Mathematics for ML — Imperial College</div>
-          <div class="cert">Databases & SQL — IBM</div>
-          <div class="cert">AI for Healthcare — (Healthcare AI)</div>
+        <!-- pipeline SVG icon container -->
+        <div class="pipeline-icon" aria-hidden="true" title="LLM and RAG pipeline icon">
+          <svg viewBox="0 0 64 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <!-- Stylized pipeline and network nodes to evoke LLM/RAG concept -->
+            <rect x="26" y="10" width="12" height="40" rx="6" ry="6" fill="currentColor" opacity="0.15"/>
+            <circle cx="32" cy="20" r="6" fill="currentColor" opacity="0.3"/>
+            <circle cx="32" cy="45" r="6" fill="currentColor" opacity="0.3"/>
+            <rect x="20" y="70" width="24" height="50" rx="10" ry="10" fill="currentColor" opacity="0.15"/>
+            <circle cx="32" cy="85" r="10" fill="currentColor" opacity="0.3"/>
+            <circle cx="32" cy="110" r="10" fill="currentColor" opacity="0.3"/>
+            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M32 30v15M32 95v15" opacity="0.3"/>
+          </svg>
+        </div>
+
+        <div class="certs" role="listitem" aria-label="Certifications">
+          <div class="cert">AWS Certified Solutions Architect – Associate</div>
+          <div class="cert">Microsoft Certified: Azure AI Engineer Associate</div>
+          <div class="cert">Certified Kubernetes Administrator (CKA)</div>
+          <div class="cert">TensorFlow Developer Certificate</div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT (Google Form embed) -->
-    <section class="card" id="contact">
-      <h2 class="section-title">Get in Touch</h2>
-      <div class="contact-frame" aria-hidden="false">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeW2p1WxpbFpCqjLn6V0n1sNA-btiR2rlOWqHiFleTjqudaQ/viewform?embedded=true" title="Contact form" loading="lazy"></iframe>
+    <!-- CONTACT FORM -->
+    <section class="card" id="contact" aria-label="Contact form">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-frame" aria-hidden="true" aria-label="Contact form iframe">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe9NfYZdRrJ9CQ8wrFq3Mw5R3O2EF9axk-OXTLs6zjNqnh7yQ/viewform?embedded=true"
+          title="Contact form"
+          loading="lazy"
+          aria-hidden="false"
+          frameborder="0"></iframe>
       </div>
     </section>
 
   </main>
+
 </div>
 
 </body>
 </html>
+
