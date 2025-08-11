@@ -1,207 +1,443 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leela Prasad | AI/ML Engineer</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Leela Prasad A — Senior AI/ML Engineer</title>
+
+<!-- Inter font + Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 <style>
-    /* Reset & global styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        background: linear-gradient(135deg, #C0C0C0, #E0E0E0);
-        color: #222;
-        height: 100vh;
-        overflow: hidden;
-    }
+  :root{
+    --left-w:320px;
+    --accent:#6b7280;    /* silver-gray accent */
+    --accent-2:#9ca3af;
+    --primary:#0b2540;   /* deep blue for headings */
+    --glass: rgba(255,255,255,0.82);
+    --muted:#556b77;
+    --card-radius:14px;
+  }
 
-    /* Background AI/ML image overlay */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-        opacity: 0.15;
-        z-index: -1;
-    }
+  /* Reset */
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#0b2540;background:#f3f6fa;-webkit-font-smoothing:antialiased}
+  a{color:var(--primary); text-decoration:none}
+  a:hover{text-decoration:underline}
 
-    /* Left fixed panel */
-    .sidebar {
-        width: 28%;
-        background: rgba(255, 255, 255, 0.85);
-        padding: 2rem;
-        position: fixed;
-        height: 100%;
-        overflow-y: auto;
-        box-shadow: 3px 0 10px rgba(0,0,0,0.1);
-    }
-    .sidebar h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #444;
-    }
-    .sidebar p {
-        margin-bottom: 1rem;
-        line-height: 1.4;
-    }
-    .sidebar a {
-        display: block;
-        color: #0073b1;
-        text-decoration: none;
-        margin-bottom: 0.5rem;
-    }
-    .sidebar a:hover { text-decoration: underline; }
+  /* Background: abstract ML/LLM image from Unsplash - very light, fixed for parallax effect */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0;
+    background-image: url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&s=5bfa6b8b1a0f6b7c9f0f5a1a2c9e6f4e");
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;   /* CSS-only parallax feel */
+    filter: blur(4px) brightness(1.05) saturate(0.95);
+    opacity:0.46;
+  }
+  /* subtle grid overlay to evoke data */
+  body::after{
+    content:"";
+    position:fixed; inset:0; z-index:0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 0.6px, transparent 0.6px);
+    background-size: 28px 28px;
+    mix-blend-mode: overlay;
+    pointer-events:none;
+    opacity:0.7;
+  }
 
-    /* Right content panel */
-    .content {
-        margin-left: 28%;
-        padding: 2rem;
-        height: 100%;
-        overflow-y: auto;
-    }
+  /* App layout */
+  .app { position:relative; z-index:5; display:flex; min-height:100vh; gap:28px; padding:28px; }
+  /* Left fixed column */
+  .left {
+    position:fixed; left:28px; top:28px; bottom:28px; width:var(--left-w);
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.90));
+    border-radius:16px; padding:26px; box-shadow: 0 18px 50px rgba(6,18,36,0.12); overflow:auto;
+    border: 1px solid rgba(5,10,20,0.04);
+  }
+  .left .name {
+    font-size:26px; font-weight:900; line-height:1; margin-bottom:6px;
+    background: linear-gradient(90deg,#9ca3af, #6b7280);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .left .title { font-size:12px; font-weight:700; color:var(--muted); margin-bottom:12px; }
+  .left .contact { display:flex; flex-direction:column; gap:10px; font-size:14px; color:#0c2b44 }
+  .left .contact a{ color:#0b3b6a; font-weight:700 }
+  .left .edu { margin-top:18px; color:var(--muted); font-weight:700 }
+  .left .cta { margin-top:18px; display:flex; gap:10px; }
+  .btn {
+    border-radius:10px; padding:9px 12px; font-weight:800; font-size:13px; border:0; cursor:pointer;
+    background:linear-gradient(90deg,var(--accent-2),var(--accent)); color:#fff; box-shadow:0 8px 24px rgba(99,102,241,0.08);
+  }
+  .btn.ghost { background:transparent; border:1px solid rgba(6,12,25,0.06); color:#0b2540; font-weight:800 }
 
-    /* Section styling */
-    section {
-        margin-bottom: 2.5rem;
-        background: rgba(255,255,255,0.92);
-        padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    section h2 {
-        margin-bottom: 1rem;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 0.5rem;
-        color: #333;
-    }
+  /* Right content area: full width minus left column */
+  .right {
+    margin-left: calc(var(--left-w) + 56px);
+    flex:1; overflow:auto; padding-bottom:80px;
+  }
 
-    /* Experience cards */
-    .experience-card {
-        margin-bottom: 1.2rem;
-        padding: 1rem;
-        background: #f9f9f9;
-        border-radius: 8px;
-        transition: transform 0.2s ease;
-    }
-    .experience-card:hover {
-        transform: scale(1.02);
-        background: #f0f0f0;
-    }
-    .experience-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.3rem;
-    }
-    .experience-card .role {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-    .experience-card p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
+  /* Card style */
+  .card {
+    background: var(--glass);
+    border-radius: var(--card-radius);
+    padding:22px;
+    margin-bottom:22px;
+    box-shadow: 0 10px 36px rgba(6,18,36,0.06);
+    border: 1px solid rgba(6,12,20,0.04);
+    backdrop-filter: blur(6px) saturate(110%);
+  }
 
-    /* Skills grid */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.8rem;
-    }
-    .skill {
-        padding: 0.6rem;
-        background: #fff;
-        text-align: center;
-        border-radius: 6px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        font-size: 0.85rem;
-        transition: transform 0.2s;
-    }
-    .skill:hover {
-        transform: translateY(-3px);
-        background: #f8f8f8;
-    }
+  h2.section-title { margin:0 0 12px 0; font-size:18px; color:var(--primary); letter-spacing:0.02em; }
+  p.lead { margin:8px 0 0 0; color:#173240; line-height:1.6; font-size:15px; }
 
-    /* Google form iframe */
-    iframe {
-        width: 100%;
-        height: 500px;
-        border: none;
-    }
+  /* DETAILS-based collapsible skills (css-only) */
+  details { border-radius:10px; overflow:hidden; margin-bottom:12px; background:linear-gradient(90deg,#fff,#fbfdff); border:1px solid rgba(8,18,30,0.04) }
+  summary { list-style:none; padding:12px 14px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:800; color:#0b3b6a; font-size:14px }
+  summary::-webkit-details-marker{ display:none }
+  details[open] summary { background:#eef6ff }
+  .skill-list { padding:12px 14px 16px 14px; display:flex; gap:10px; flex-wrap:wrap }
+
+  .chip {
+    background: #f3f7fb;
+    color:#083a62;
+    padding:8px 11px;
+    border-radius:10px;
+    font-weight:800;
+    font-size:13px;
+    display:flex; gap:8px; align-items:center;
+    border:1px solid rgba(8,20,40,0.04);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .chip:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(9,30,60,0.06); background:#e8f2ff }
+
+  /* Experience horizontal large cards */
+  .exp-wrapper { overflow-x:auto; padding-bottom:10px; margin-top:8px; }
+  .exp-row { display:flex; gap:20px; min-width: max-content; padding:10px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+  .exp-card {
+    flex:0 0 760px; scroll-snap-align:center;
+    background:linear-gradient(180deg,#ffffff,#fbfdff);
+    border-radius:12px; padding:26px; box-shadow: 0 18px 60px rgba(6,18,36,0.06);
+    border:1px solid rgba(6,12,20,0.04);
+    display:flex; flex-direction:column; gap:12px; min-height:320px;
+    transition: transform .18s ease;
+  }
+  .exp-card:hover { transform: translateY(-10px) }
+  .company { font-size:26px; font-weight:900; color:#062a4f; }
+  .role { font-size:15px; font-weight:800; color:#1d4f78 }
+  .bullets { margin:8px 0 0 18px; color:#1b3b49; line-height:1.55; font-size:15px }
+  .meta { margin-top:auto; color:var(--muted); font-weight:700 }
+
+  /* Education / Certifications layout */
+  .edu-cert { display:flex; gap:28px; align-items:flex-start; margin-top:8px; }
+  .edu, .certs { flex:1; min-width:260px }
+  .edu li { list-style:none; margin-bottom:12px; font-weight:800; color:#0b2b44 }
+  .edu small { display:block; font-weight:700; color:var(--muted); margin-top:6px }
+  .cert { background:#f7fbff; padding:12px 14px; border-radius:10px; margin-bottom:10px; font-weight:800; color:#083a68; border:1px solid rgba(6,12,20,0.03) }
+
+  /* Contact iframe */
+  .contact-frame { border-radius:12px; overflow:hidden; border:1px solid rgba(6,12,20,0.035); box-shadow:0 12px 36px rgba(6,18,36,0.05) }
+  .contact-frame iframe { width:100%; height:640px; border:0; display:block }
+
+  /* responsive tweaks */
+  @media (max-width:1000px){
+    .left { left:18px; top:18px; bottom:18px; width:300px }
+    .right { margin-left: calc(300px + 46px) }
+    .exp-card { flex:0 0 620px }
+  }
+  @media (max-width:720px){
+    .app { flex-direction:column; gap:14px }
+    .left { position:relative; width:auto; margin:12px; border-radius:12px; height:auto; }
+    .right { margin-left:0; padding:18px }
+    .exp-row { flex-direction:column; min-width:unset }
+    .exp-card { width:100% }
+    .edu-cert { flex-direction:column }
+  }
+
+  /* small focus style for accessibility */
+  :focus { outline: 3px solid rgba(59,130,246,0.14); outline-offset:3px; border-radius:8px; }
 </style>
 </head>
 <body>
 
-    <!-- LEFT FIXED PANEL -->
-    <div class="sidebar">
-        <h1>Leela Prasad</h1>
-        <p>Senior AI/ML Engineer with expertise in LLMs, Generative AI, and scalable ML solutions.</p>
-        <a href="mailto:leelaprasad.it@gmail.com">leelaprasad.it@gmail.com</a>
-        <a href="https://www.linkedin.com/in/leela-prasad-reddy-annapureddy-291b411b0" target="_blank">LinkedIn</a>
-        <a href="https://github.com/LEELA-96" target="_blank">GitHub</a>
+<div class="app" role="application" aria-label="Leela Prasad portfolio">
+
+  <!-- LEFT PROFILE PANEL (fixed) -->
+  <aside class="left" aria-label="Profile">
+    <div>
+      <div class="name">Leela Prasad A</div>
+      <div class="title">Senior AI/ML Engineer – AWS Certified | Dallas, TX</div>
     </div>
 
-    <!-- RIGHT SCROLL CONTENT -->
-    <div class="content">
-
-        <!-- Summary -->
-        <section>
-            <h2>Professional Summary</h2>
-            <p>Senior AI/ML Engineer with over 8 years of experience designing, developing, and deploying scalable AI, machine learning, and data engineering solutions across financial services, healthcare, and e-commerce sectors. Proven expertise in building advanced Generative AI applications and Retrieval-Augmented Generation (RAG) platforms that enhance semantic search, reduce hallucinations by up to 30%, and improve query resolution times by 40%. Skilled in fine-tuning large language models (LLMs) such as GPT-4/3.5 and Anthropic models using LoRA, QLoRA, and PEFT to optimize performance and ensure compliance with regulatory standards. Extensive experience integrating vector databases including Amazon OpenSearch and Pinecone to boost precision and retrieval speed. Strong background in MLOps and LLMOps with end-to-end CI/CD pipelines leveraging Jenkins, Terraform, and GitHub Actions for robust, scalable, and highly available AI microservices deployed on hybrid cloud environments (AWS EKS and Azure AKS). Expertise in building real-time data ingestion and transformation pipelines handling millions of documents and search events to significantly reduce latency and increase accuracy. Adept at mentoring engineering teams, driving best practices for GenAI development, and delivering actionable insights through data visualization tools such as Tableau and AWS QuickSight.</p>
-        </section>
-
-        <!-- Experience -->
-        <section>
-            <h2>Experience</h2>
-            <div class="experience-card">
-                <h3>Fidelity Investments</h3>
-                <div class="role">Senior ML Engineer</div>
-                <p>Led the design and implementation of Generative AI solutions to enhance document search and compliance automation using RAG pipelines, vector databases, and fine-tuned LLMs.</p>
-            </div>
-            <div class="experience-card">
-                <h3>XYZ Healthcare</h3>
-                <div class="role">AI Engineer</div>
-                <p>Developed ML-powered predictive analytics platform for early diagnosis, reducing patient readmission rates by 18%.</p>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section>
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">Python</div>
-                <div class="skill">PyTorch</div>
-                <div class="skill">TensorFlow</div>
-                <div class="skill">LangChain</div>
-                <div class="skill">RAG</div>
-                <div class="skill">AWS</div>
-                <div class="skill">Azure</div>
-                <div class="skill">Snowflake</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Docker</div>
-                <div class="skill">Kubernetes</div>
-                <div class="skill">Pandas</div>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section>
-            <h2>Certifications</h2>
-            <ul>
-                <li>AWS Certified Solutions Architect</li>
-                <li>AI for Healthcare</li>
-            </ul>
-        </section>
-
-        <!-- Get in touch -->
-        <section>
-            <h2>Get in Touch</h2>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeW2p1WxpbFpCqjLn6V0n1sNA-btiR2rlOWqHiFleTjqudaQ/viewform?embedded=true">Loading…</iframe>
-        </section>
-
+    <div class="contact" aria-label="Contact">
+      <div><i class="fa-solid fa-envelope" style="margin-right:8px;color:#6b7280"></i><a href="mailto:leelaprasad.it@gmail.com">leelaprasad.it@gmail.com</a></div>
+      <div><i class="fa-solid fa-phone" style="margin-right:8px;color:#6b7280"></i>+1 (469) 298-9432</div>
+      <div><i class="fa-brands fa-linkedin" style="margin-right:8px;color:#6b7280"></i><a href="https://www.linkedin.com/in/leela-prasad-reddy-annapureddy-291b411b0" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div><i class="fa-brands fa-github" style="margin-right:8px;color:#6b7280"></i><a href="https://github.com/LEELA-96" target="_blank" rel="noopener">GitHub</a></div>
     </div>
+
+    <div class="edu">
+      <div style="font-weight:800;color:#0b2b44;margin-top:14px">MS, Computer Science</div>
+      <div style="font-weight:700;color:var(--muted);margin-top:6px">University of North Texas</div>
+    </div>
+
+    <div class="cta">
+      <button class="btn" onclick="window.print()">Download CV</button>
+      <a class="btn ghost" href="#contact" style="display:inline-block;text-align:center;padding:9px 12px;line-height:1">Contact</a>
+    </div>
+  </aside>
+
+  <!-- RIGHT SCROLLABLE PANEL -->
+  <main class="right" id="main" role="main">
+
+    <!-- SUMMARY -->
+    <section class="card" id="summary">
+      <h2 class="section-title">Summary</h2>
+      <p class="lead">
+        Senior AI/ML Engineer with over 8 years of experience designing, developing, and deploying scalable AI, machine learning, and data engineering solutions across financial services, healthcare, and e-commerce sectors. Proven expertise in building advanced Generative AI applications and Retrieval-Augmented Generation (RAG) platforms that enhance semantic search, reduce hallucinations by up to 30%, and improve query resolution times by 40%. Skilled in fine-tuning large language models (LLMs) such as GPT-4/3.5 and Anthropic models using LoRA, QLoRA, and PEFT to optimize performance and ensure compliance with regulatory standards. Extensive experience integrating vector databases including Amazon OpenSearch and Pinecone to boost precision and retrieval speed. Strong background in MLOps and LLMOps with end-to-end CI/CD pipelines leveraging Jenkins, Terraform, and GitHub Actions for robust, scalable, and highly available AI microservices deployed on hybrid cloud environments (AWS EKS and Azure AKS). Expertise in building real-time data ingestion and transformation pipelines handling millions of documents and search events to significantly reduce latency and increase accuracy. Adept at mentoring engineering teams, driving best practices for GenAI development, and delivering actionable insights through data visualization tools such as Tableau and AWS QuickSight.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card" id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <!-- Use details/summary so collapse works without JS -->
+      <details open>
+        <summary>Data Analysis & Visualization</summary>
+        <div class="skill-list" aria-hidden="false">
+          <div class="chip"><i class="fa-solid fa-file-excel"></i> Excel</div>
+          <div class="chip"><i class="fa-solid fa-chart-pie"></i> Tableau</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> AWS QuickSight</div>
+          <div class="chip"><i class="fa-solid fa-snowflake"></i> Snowflake</div>
+          <div class="chip"><i class="fa-brands fa-python"></i> Pandas</div>
+          <div class="chip"><i class="fa-solid fa-code"></i> NumPy</div>
+          <div class="chip"><i class="fa-solid fa-chart-area"></i> Matplotlib</div>
+          <div class="chip"><i class="fa-solid fa-water"></i> Seaborn</div>
+          <div class="chip"><i class="fa-solid fa-flask"></i> SciPy</div>
+          <div class="chip"><i class="fa-solid fa-link"></i> LangChain</div>
+          <div class="chip"><i class="fa-solid fa-pen-to-square"></i> LangSmith</div>
+          <div class="chip"><i class="fa-solid fa-camera"></i> OpenCV</div>
+          <div class="chip"><i class="fa-brands fa-python"></i> PySpark</div>
+          <div class="chip"><i class="fa-solid fa-robot"></i> Scikit-Learn</div>
+          <div class="chip"><i class="fa-solid fa-bolt"></i> XGBoost</div>
+          <div class="chip"><i class="fa-solid fa-brain"></i> Sentence Transformers</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Generative AI & NLP</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-solid fa-robot"></i> LLMs</div>
+          <div class="chip"><i class="fa-solid fa-layer-group"></i> RAG</div>
+          <div class="chip"><i class="fa-solid fa-lightbulb"></i> Prompt Engineering</div>
+          <div class="chip"><i class="fa-solid fa-cogs"></i> Transformers</div>
+          <div class="chip"><i class="fa-solid fa-network-wired"></i> LoRA</div>
+          <div class="chip"><i class="fa-solid fa-network-wired"></i> QLoRA</div>
+          <div class="chip"><i class="fa-solid fa-gears"></i> PEFT</div>
+          <div class="chip"><i class="fa-brands fa-openai"></i> OpenAI GPT-4/3.5</div>
+          <div class="chip"><i class="fa-solid fa-brain"></i> Anthropic LLMs</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> Amazon Bedrock</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Programming Languages</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-brands fa-python"></i> Python</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> SQL</div>
+          <div class="chip"><i class="fa-brands fa-js"></i> JavaScript</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Development Tools</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-solid fa-book-open"></i> Jupyter</div>
+          <div class="chip"><i class="fa-brands fa-python"></i> PyCharm</div>
+          <div class="chip"><i class="fa-solid fa-code"></i> DataSpell</div>
+          <div class="chip"><i class="fa-solid fa-server"></i> FastAPI</div>
+          <div class="chip"><i class="fa-solid fa-flask"></i> Flask</div>
+          <div class="chip"><i class="fa-solid fa-network-wired"></i> REST API</div>
+          <div class="chip"><i class="fa-brands fa-jenkins"></i> Jenkins</div>
+          <div class="chip"><i class="fa-brands fa-docker"></i> Docker</div>
+          <div class="chip"><i class="fa-brands fa-kubernetes"></i> Kubernetes (EKS/AKS)</div>
+          <div class="chip"><i class="fa-solid fa-wrench"></i> Terraform</div>
+          <div class="chip"><i class="fa-brands fa-git-alt"></i> Git</div>
+          <div class="chip"><i class="fa-solid fa-chart-line"></i> MLflow</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>MLOps & LLMOps</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-brands fa-aws"></i> AWS SageMaker</div>
+          <div class="chip"><i class="fa-brands fa-microsoft"></i> Azure ML</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> Databricks</div>
+          <div class="chip"><i class="fa-solid fa-code-branch"></i> CI/CD Pipelines (Jenkins / GitHub Actions)</div>
+          <div class="chip"><i class="fa-solid fa-cubes"></i> Kubeflow</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Data Engineering</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-brands fa-java"></i> Apache Spark</div>
+          <div class="chip"><i class="fa-solid fa-microphone-lines"></i> Apache Kafka</div>
+          <div class="chip"><i class="fa-solid fa-wind"></i> Apache Airflow</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> AWS Glue</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> AWS Kinesis</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> MySQL</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> MS SQL Server</div>
+          <div class="chip"><i class="fa-solid fa-search"></i> Amazon OpenSearch</div>
+          <div class="chip"><i class="fa-solid fa-search"></i> Elasticsearch</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Mathematics & Statistics</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-solid fa-percent"></i> Probability</div>
+          <div class="chip"><i class="fa-solid fa-chart-column"></i> Statistics</div>
+          <div class="chip"><i class="fa-solid fa-vector-square"></i> Linear Algebra</div>
+          <div class="chip"><i class="fa-solid fa-square-root-variable"></i> Calculus</div>
+          <div class="chip"><i class="fa-solid fa-clock"></i> Time Series (ARIMA / SARIMA / Prophet / LSTM)</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>AWS Cloud Services</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-brands fa-aws"></i> SageMaker</div>
+          <div class="chip"><i class="fa-solid fa-cloud-arrow-up"></i> S3</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> RDS</div>
+          <div class="chip"><i class="fa-solid fa-database"></i> DynamoDB</div>
+          <div class="chip"><i class="fa-solid fa-cogs"></i> Step Functions</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> Glue</div>
+          <div class="chip"><i class="fa-solid fa-magnifying-glass"></i> Athena</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> Redshift</div>
+          <div class="chip"><i class="fa-brands fa-aws"></i> QuickSight</div>
+          <div class="chip"><i class="fa-solid fa-lambda"></i> Lambda</div>
+          <div class="chip"><i class="fa-solid fa-id-badge"></i> IAM</div>
+          <div class="chip"><i class="fa-solid fa-eye"></i> CloudWatch</div>
+          <div class="chip"><i class="fa-solid fa-server"></i> EC2</div>
+          <div class="chip"><i class="fa-solid fa-hdd"></i> EBS / EFS</div>
+          <div class="chip"><i class="fa-solid fa-code-branch"></i> CodeCommit / CodeBuild / CodeDeploy</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Operating Systems</summary>
+        <div class="skill-list" aria-hidden="true">
+          <div class="chip"><i class="fa-brands fa-windows"></i> Windows</div>
+          <div class="chip"><i class="fa-brands fa-linux"></i> Linux</div>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card" id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-wrapper" tabindex="0" aria-label="Experience scroller">
+        <div class="exp-row">
+
+          <!-- Fidelity -->
+          <article class="exp-card" aria-labelledby="fid">
+            <div class="company" id="fid">Fidelity Investments</div>
+            <div class="role">Senior ML Engineer (ECCP) | May 2024 – Present</div>
+            <div class="bullets">
+              <ul>
+                <li>Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.</li>
+                <li>Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.</li>
+                <li>Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.</li>
+              </ul>
+            </div>
+            <div class="meta">Hybrid-cloud RAG • LLM fine-tuning • Scalable ingestion</div>
+          </article>
+
+          <!-- Teladoc -->
+          <article class="exp-card" aria-labelledby="tel">
+            <div class="company" id="tel">Teladoc Health</div>
+            <div class="role">ML Engineer | Jul 2021 – Aug 2022</div>
+            <div class="bullets">
+              <ul>
+                <li>Enhanced virtual health assistant AI, raising satisfaction scores 25%.</li>
+                <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.</li>
+                <li>Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.</li>
+              </ul>
+            </div>
+            <div class="meta">Clinical NLP • MLOps • Monitoring</div>
+          </article>
+
+          <!-- DataBeat -->
+          <article class="exp-card" aria-labelledby="db">
+            <div class="company" id="db">DataBeat</div>
+            <div class="role">Data Engineer | Jun 2019 – Jun 2021</div>
+            <div class="bullets">
+              <ul>
+                <li>Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.</li>
+                <li>Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.</li>
+                <li>Developed real-time ingestion workflows enabling instant search ranking updates.</li>
+              </ul>
+            </div>
+            <div class="meta">Realtime ETL • Search relevance • High-throughput pipelines</div>
+          </article>
+
+          <!-- iLink -->
+          <article class="exp-card" aria-labelledby="il">
+            <div class="company" id="il">iLink Digital</div>
+            <div class="role">Python Developer | May 2017 – May 2019</div>
+            <div class="bullets">
+              <ul>
+                <li>Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.</li>
+                <li>Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.</li>
+                <li>Developed ETL workflows with indexing/caching, improving query performance 70%.</li>
+              </ul>
+            </div>
+            <div class="meta">Automation • APIs • ETL & Indexing</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATES -->
+    <section class="card" id="education">
+      <h2 class="section-title">Education & Certifications</h2>
+      <div class="edu-cert">
+        <div class="edu" aria-label="Education">
+          <h3 style="margin:0 0 10px 0;color:var(--primary)">Education</h3>
+          <ul>
+            <li>MS, Computer Science <small>University of North Texas</small></li>
+          </ul>
+        </div>
+
+        <div class="certs" aria-label="Certifications">
+          <h3 style="margin:0 0 10px 0;color:var(--primary)">Certifications</h3>
+          <div class="cert">AWS ML Specialty — Amazon</div>
+          <div class="cert">Azure AI Associate — Microsoft</div>
+          <div class="cert">Generative AI — DeepLearning.AI</div>
+          <div class="cert">Mathematics for ML — Imperial College</div>
+          <div class="cert">Databases & SQL — IBM</div>
+          <div class="cert">AI for Healthcare — (Healthcare AI)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (Google Form embed) -->
+    <section class="card" id="contact">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-frame" aria-hidden="false">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeW2p1WxpbFpCqjLn6V0n1sNA-btiR2rlOWqHiFleTjqudaQ/viewform?embedded=true" title="Contact form" loading="lazy"></iframe>
+      </div>
+    </section>
+
+  </main>
+</div>
 
 </body>
 </html>
-
