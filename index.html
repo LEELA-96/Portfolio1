@@ -3,459 +3,417 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Leela Prasad A — Senior AI/ML Engineer Portfolio</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-
+<title>Leela Prasad A - Senior AI/ML Engineer Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
   :root {
-    --left-width: 280px;
-    --primary-color: #0b2540;
-    --accent-color: #3b82f6;
-    --accent-light: #60a5fa;
-    --bg-glass: rgba(255,255,255,0.92);
+    --bg-color: #f5f7fa;
+    --primary-color: #3b82f6;
+    --text-color: #1e293b;
+    --text-light: #475569;
+    --accent-color: #2563eb;
     --card-radius: 16px;
+    --left-width: 300px;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  /* Reset */
-  * {
-    box-sizing: border-box;
+  /* Background */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
   }
-  html, body {
-    margin: 0; padding: 0;
-    height: 100%;
-    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #f4f8fb;
-    color: var(--primary-color);
-    -webkit-font-smoothing: antialiased;
+
+  /* Overlay for background fade */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255 255 255 / 0.9);
+    backdrop-filter: blur(10px);
+    z-index: -1;
   }
+
   a {
-    color: var(--accent-color);
+    color: var(--primary-color);
     text-decoration: none;
   }
   a:hover {
     text-decoration: underline;
   }
 
-  /* Background: AI/ML themed image */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background: url('https://images.unsplash.com/photo-1612832021443-cb3e03cc9273?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-    background-size: cover;
-    filter: brightness(0.9) saturate(0.7) blur(4px);
-    opacity: 0.15;
-  }
-
-  /* Layout */
-  .app {
+  /* Container */
+  .container {
     display: flex;
     min-height: 100vh;
-    padding: 32px 40px;
-    gap: 36px;
-    position: relative;
-    z-index: 10;
+    padding: 40px 40px 40px calc(var(--left-width) + 60px);
   }
+
+  /* Left fixed panel */
   .left {
     width: var(--left-width);
     position: fixed;
-    top: 32px;
-    bottom: 32px;
+    top: 40px;
     left: 40px;
-    background: var(--bg-glass);
+    bottom: 40px;
+    background: rgba(255 255 255 / 0.85);
+    backdrop-filter: blur(15px);
     border-radius: var(--card-radius);
+    border: 1px solid rgba(0 0 0 / 0.1);
+    box-shadow: 0 24px 64px rgba(0 0 0 / 0.1);
     padding: 32px 24px;
-    box-shadow: 0 24px 64px rgba(6,18,36,0.16);
-    border: 1px solid rgba(6,12,20,0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 28px;
-  }
-  .left::-webkit-scrollbar {
-    display: none;
+    z-index: 20;
   }
 
-  /* Left - Name & Contact Boxes */
-  .left .name {
-    font-size: 32px;
+  /* Name and contact */
+  .name {
+    font-size: 2.4rem;
     font-weight: 900;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  .contact-info {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  .contact-info div {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  .contact-info i {
+    margin-right: 8px;
+    color: var(--primary-color);
+  }
+
+  /* Left labels style */
+  .label-box {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
     user-select: none;
   }
-  .contact-box {
-    width: 100%;
-    background: #eff6ff;
-    border-radius: 14px;
-    padding: 14px 18px;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 6px 16px rgba(59,130,246,0.15);
-    border: 1px solid rgba(59,130,246,0.3);
-    cursor: default;
-  }
-  .contact-box i {
-    font-size: 20px;
-    color: var(--accent-color);
-    flex-shrink: 0;
-  }
-  .contact-box a {
-    color: var(--primary-color);
-    font-weight: 700;
-    word-break: break-all;
-  }
 
-  /* Right content scroll */
-  .right {
-    margin-left: calc(var(--left-width) + 88px);
-    flex: 1;
+  /* Main content */
+  main {
+    flex-grow: 1;
+    max-width: 100%;
     overflow-y: auto;
-    max-height: calc(100vh - 64px);
-    padding-right: 28px;
   }
 
-  /* Sections styling */
-  section {
-    background: var(--bg-glass);
-    border-radius: var(--card-radius);
-    padding: 28px 36px;
-    margin-bottom: 32px;
-    box-shadow: 0 20px 56px rgba(6,18,36,0.08);
-    border: 1px solid rgba(6,12,20,0.07);
-  }
-  section h2 {
-    margin-top: 0;
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 10px;
-  }
-  section p.lead {
-    font-size: 16px;
-    line-height: 1.65;
-    color: #173240;
+  main > section {
+    margin-bottom: 60px;
   }
 
-  /* Education & Certifications container with diagram */
-  .edu-cert-container {
+  h2 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  /* Summary */
+  #summary p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-light);
+    max-width: 900px;
+  }
+
+  /* Education & Certifications container */
+  #edu-cert-container {
     display: flex;
     gap: 40px;
-    align-items: flex-start;
-    margin-bottom: 32px;
+    flex-wrap: wrap;
+    max-width: 900px;
   }
-  .education, .certifications {
-    flex: 1;
+
+  #education, #certifications {
+    background: rgba(255 255 255 / 0.95);
+    border-radius: var(--card-radius);
+    padding: 20px 24px;
+    box-shadow: 0 12px 32px rgba(0 0 0 / 0.07);
+    flex: 1 1 360px;
   }
-  .education strong, .certifications strong {
-    display: block;
-    font-weight: 900;
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: var(--primary-color);
-  }
-  .education .university, .certifications .cert-list {
-    color: var(--accent-color);
+  #education h3, #certifications h3 {
     font-weight: 700;
-    font-size: 14px;
-    line-height: 1.4;
-  }
-  .certifications .cert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .certifications .cert-list div {
-    background: #e0f2fe;
-    border-radius: 14px;
-    padding: 10px 16px;
-    font-weight: 600;
     color: var(--primary-color);
-    border: 1px solid #bae6fd;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 6px;
+  }
+  #education ul, #certifications ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.45;
   }
 
-  /* ML Pipeline Diagram container */
-  .ml-pipeline-svg {
-    width: 180px;
-    flex-shrink: 0;
-    opacity: 0.3;
-  }
-  .ml-pipeline-svg svg {
-    width: 100%;
-    height: auto;
-    fill: var(--accent-color);
+  /* ML pipeline image container */
+  .ml-pipeline-img {
+    flex: 1 1 320px;
+    background: url('https://www.techspot.com/articles-info/2048/images/ml-explained-header.jpg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.12;
+    border-radius: var(--card-radius);
+    box-shadow: inset 0 0 24px rgba(59,130,246,0.1);
+    min-height: 220px;
   }
 
-  /* Skills details/summary */
+  /* Skills section */
+  #skills {
+    max-width: 900px;
+  }
+
   details {
-    margin-top: 14px;
-    border: 1px solid rgba(59,130,246,0.25);
-    border-radius: 14px;
-    background: #f0f9ff;
-    overflow: hidden;
+    background: rgba(255 255 255 / 0.9);
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 16px rgba(0 0 0 / 0.1);
+    margin-bottom: 20px;
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
+  details[open] summary::after {
+    content: "▲";
+    float: right;
   }
   summary {
-    cursor: pointer;
-    padding: 16px 22px;
     font-weight: 700;
-    font-size: 16px;
-    color: var(--primary-color);
+    cursor: pointer;
     user-select: none;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  summary::-webkit-details-marker {
-    display: none;
-  }
-  details[open] summary {
-    background: #bae6fd;
-  }
-  .skill-list {
-    padding: 12px 24px 18px 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-  .skill-chip {
-    background: #dbeafe;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s ease;
-    border: 1px solid rgba(59,130,246,0.45);
-  }
-  .skill-chip:hover {
-    background: #93c5fd;
-  }
-  .skill-chip i {
+    outline: none;
+    padding-right: 12px;
+    font-size: 1.1rem;
     color: var(--accent-color);
-    font-size: 18px;
+  }
+  summary::after {
+    content: "▼";
+    float: right;
+    transition: transform 0.3s ease;
   }
 
-  /* Experience cards */
+  .skill-list {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .skill-chip {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .skill-chip i {
+    font-size: 1.1rem;
+  }
+
+  /* Experience section */
+  #experience {
+    max-width: 100vw;
+  }
   .exp-wrapper {
     overflow-x: auto;
     padding-bottom: 12px;
-    margin-top: 18px;
   }
   .exp-row {
     display: flex;
-    gap: 22px;
-    min-width: max-content;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    gap: 28px;
+    min-width: 960px;
   }
   .exp-card {
-    flex: 0 0 780px;
-    scroll-snap-align: center;
-    background: #dbeafe;
-    border-radius: 18px;
-    padding: 32px 28px;
-    box-shadow: 0 22px 70px rgba(59,130,246,0.12);
-    border: 1px solid rgba(59,130,246,0.15);
+    background: rgba(255 255 255 / 0.95);
+    border-radius: var(--card-radius);
+    box-shadow: 0 12px 32px rgba(0 0 0 / 0.08);
+    padding: 24px 28px;
+    width: 480px;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    min-height: 400px;
-    transition: transform 0.3s ease;
-    overflow-y: auto;
+    gap: 14px;
   }
-  .exp-card:hover {
-    transform: translateY(-14px);
+  .exp-card:hover, .exp-card:focus {
+    box-shadow: 0 24px 48px rgba(0 0 0 / 0.3);
   }
   .company {
-    font-size: 28px;
     font-weight: 900;
-    color: #1e40af;
+    font-size: 1.5rem;
+    color: var(--primary-color);
   }
   .role {
-    font-size: 17px;
-    font-weight: 800;
-    color: #2563eb;
-  }
-  .bullets {
-    margin-left: 24px;
-    color: #1e3a8a;
-    font-size: 15.5px;
-    line-height: 1.6;
-  }
-  .bullets li {
-    margin-bottom: 14px;
-  }
-  .meta {
-    margin-top: auto;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 1.1rem;
     color: var(--accent-color);
   }
+  .bullets {
+    padding-left: 1.2rem;
+    margin: 0;
+    color: var(--text-light);
+    max-height: 240px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .bullets::-webkit-scrollbar {
+    width: 6px;
+  }
+  .bullets::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 9999px;
+  }
 
-  /* Contact iframe */
+  /* Contact section */
+  #contact {
+    max-width: 900px;
+  }
   #contact iframe {
     width: 100%;
-    min-height: 660px;
+    height: 520px;
     border: none;
-    border-radius: 16px;
-    box-shadow: 0 14px 46px rgba(59,130,246,0.15);
+    border-radius: var(--card-radius);
+    box-shadow: 0 16px 48px rgba(0 0 0 / 0.12);
   }
 
-  /* Scrollbar styling */
-  .exp-wrapper::-webkit-scrollbar {
-    height: 9px;
+  /* Scrollbar style for main content */
+  main::-webkit-scrollbar {
+    width: 12px;
   }
-  .exp-wrapper::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
-    border-radius: 6px;
+  main::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+  }
+  main::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 9999px;
   }
 
-  /* Responsive */
-  @media (max-width: 1100px) {
-    .exp-card {
-      flex: 0 0 620px;
-    }
-    .left {
-      width: 240px;
-      padding: 28px 18px;
-    }
-  }
-  @media (max-width: 860px) {
-    .app {
+  /* Responsive tweaks */
+  @media (max-width: 1000px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       flex-direction: column;
-      padding: 24px 18px;
     }
     .left {
       position: relative;
       width: 100%;
-      max-height: none;
-      overflow: visible;
-      margin-bottom: 26px;
-      left: auto;
+      height: auto;
+      margin-bottom: 30px;
       top: auto;
+      left: auto;
       bottom: auto;
-      border-radius: var(--card-radius);
-      padding: 24px 18px;
-      flex-direction: row;
-      justify-content: center;
-      gap: 18px;
+      padding: 20px 12px;
+      box-shadow: none;
+      border: none;
+      background: rgba(255 255 255 / 0.95);
     }
-    .contact-box {
-      font-size: 13px;
-      padding: 10px 14px;
+    main {
+      padding-left: 0;
     }
-    .right {
-      margin-left: 0;
-      max-height: none;
-      padding-right: 0;
+    #edu-cert-container {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ml-pipeline-img {
+      min-height: 160px;
     }
     .exp-row {
-      flex-direction: column;
-      gap: 22px;
-      min-width: unset;
+      min-width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
     .exp-card {
-      width: 100%;
-      min-height: auto;
-      overflow-y: visible;
-    }
-    .edu-cert-container {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .ml-pipeline-svg {
-      width: 100%;
-      opacity: 0.18;
+      width: 320px;
     }
   }
 </style>
 </head>
 <body>
 
-<div class="app" role="application" aria-label="Leela Prasad portfolio">
+<div class="container" role="main" aria-label="Leela Prasad A Portfolio">
 
-  <!-- LEFT FIXED PANEL -->
-  <aside class="left" aria-label="Profile and Contact Information">
+  <aside class="left" aria-label="Contact and personal information" role="complementary">
     <div class="name" tabindex="0">Leela Prasad A</div>
+    <div class="title" tabindex="0">Senior AI/ML Engineer – AWS Certified</div>
 
-    <a href="mailto:leelaprasad.it@gmail.com" class="contact-box" tabindex="0">
-      <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-      <span>leelaprasad.it@gmail.com</span>
-    </a>
-    <div class="contact-box" tabindex="0">
-      <i class="fa-solid fa-phone" aria-hidden="true"></i>
-      <span>+1 (469) 298-9432</span>
+    <div class="contact-info" tabindex="0">
+      <div><i class="fa-solid fa-envelope"></i> leelaprasad.it@gmail.com</div>
+      <div><i class="fa-solid fa-phone"></i> +1 (469) 298-9432</div>
+      <div><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/leela-prasad-reddy-annapureddy-291b411b0" target="_blank" rel="noopener">linkedin.com/in/leela-prasad-reddy-annapureddy-291b411b0</a></div>
+      <div><i class="fa-brands fa-github"></i> <a href="https://github.com/LEELA-96" target="_blank" rel="noopener">github.com/LEELA-96</a></div>
     </div>
-    <a href="https://www.linkedin.com/in/leela-prasad-reddy-annapureddy-291b411b0" target="_blank" rel="noopener noreferrer" class="contact-box" tabindex="0">
-      <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-      <span>LinkedIn Profile</span>
-    </a>
-    <a href="https://github.com/LEELA-96" target="_blank" rel="noopener noreferrer" class="contact-box" tabindex="0">
-      <i class="fa-brands fa-github" aria-hidden="true"></i>
-      <span>GitHub Profile</span>
-    </a>
   </aside>
 
-  <!-- RIGHT SCROLLABLE CONTENT -->
-  <main class="right" role="main" tabindex="0">
+  <main>
 
-    <section id="summary" tabindex="0">
+    <section id="summary" tabindex="0" aria-label="Professional summary">
       <h2>Summary</h2>
-      <p class="lead">
+      <p>
         Senior AI/ML Engineer with over 8 years of experience designing, developing, and deploying scalable AI, machine learning, and data engineering solutions across financial services, healthcare, and e-commerce sectors. Proven expertise in building advanced Generative AI applications and Retrieval-Augmented Generation (RAG) platforms that enhance semantic search, reduce hallucinations by up to 30%, and improve query resolution times by 40%. Skilled in fine-tuning large language models (LLMs) such as GPT-4/3.5 and Anthropic models using LoRA, QLoRA, and PEFT to optimize performance and ensure compliance with regulatory standards. Extensive experience integrating vector databases including Amazon OpenSearch and Pinecone to boost precision and retrieval speed. Strong background in MLOps and LLMOps with end-to-end CI/CD pipelines leveraging Jenkins, Terraform, and GitHub Actions for robust, scalable, and highly available AI microservices deployed on hybrid cloud environments (AWS EKS and Azure AKS). Expertise in building real-time data ingestion and transformation pipelines handling millions of documents and search events to significantly reduce latency and increase accuracy. Adept at mentoring engineering teams, driving best practices for GenAI development, and delivering actionable insights through data visualization tools such as Tableau and AWS QuickSight.
       </p>
     </section>
 
-    <section id="education-certifications" tabindex="0" aria-label="Education and Certifications">
-      <div class="edu-cert-container">
-
-        <div class="education" aria-label="Education">
-          <strong>Master of Science in Computer Science</strong>
-          <div class="university">University of North Texas</div>
+    <section id="education-certifications" tabindex="0" aria-label="Education and certifications with ML diagram">
+      <div id="edu-cert-container">
+        <div id="education" tabindex="0">
+          <h3>Education</h3>
+          <ul>
+            <li>MS, Computer Science – Univ. of North Texas</li>
+          </ul>
         </div>
-
-        <div class="ml-pipeline-svg" aria-hidden="true" title="ML Pipeline Illustration">
-          <!-- Example stylized pipeline SVG -->
-          <svg viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Machine Learning pipeline icon">
-            <rect x="28" y="12" width="24" height="48" rx="8" ry="8" fill="currentColor" opacity="0.14"/>
-            <circle cx="40" cy="36" r="12" fill="currentColor" opacity="0.24"/>
-            <rect x="16" y="80" width="48" height="56" rx="14" ry="14" fill="currentColor" opacity="0.14"/>
-            <circle cx="40" cy="108" r="16" fill="currentColor" opacity="0.24"/>
-            <circle cx="40" cy="140" r="16" fill="currentColor" opacity="0.24"/>
-            <path stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M40 60v20M40 124v20" opacity="0.24"/>
-          </svg>
+        <div id="certifications" tabindex="0">
+          <h3>Certifications</h3>
+          <ul>
+            <li>AWS ML Specialty</li>
+            <li>Azure AI Associate</li>
+            <li>Generative AI (DeepLearning.AI)</li>
+            <li>Mathematics for ML (Imperial College)</li>
+            <li>Databases & SQL (IBM)</li>
+            <li>AI for health care - Stanford University</li>
+          </ul>
         </div>
-
-        <div class="certifications" aria-label="Certifications">
-          <strong>Certifications</strong>
-          <div class="cert-list">
-            <div>AWS ML Specialty</div>
-            <div>Azure AI Associate</div>
-            <div>Generative AI (DeepLearning.AI)</div>
-            <div>Mathematics for ML (Imperial College)</div>
-            <div>Databases & SQL (IBM)</div>
-            <div>AI for health care - Stanford University</div>
-          </div>
-        </div>
-
+        <div class="ml-pipeline-img" aria-hidden="true" title="Machine Learning Illustration"></div>
       </div>
     </section>
 
-    <section id="skills" tabindex="0" aria-label="Technical Skills">
+    <section id="skills" tabindex="0" aria-label="Technical skills">
       <h2>Technical Skills</h2>
 
       <details open>
@@ -489,8 +447,8 @@
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-code-branch"></i> QLoRA</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-code-branch"></i> PEFT</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-openai"></i> OpenAI GPT-4/GPT-3.5</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-cloud"></i> Anthropic LLMs</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-aws"></i> Amazon Bedrock</div>
+          <div class="skill-chip" role="listitem"><i class="fa-brands fa-cloud"></i> Anthropic LLMs</div>
+          <div class="skill-chip" role="listitem"><i class="fa-brands fa-amazon"></i> Amazon Bedrock</div>
         </div>
       </details>
 
@@ -499,7 +457,7 @@
         <div class="skill-list" role="list">
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-python"></i> Python</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> SQL</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-js-square"></i> JavaScript</div>
+          <div class="skill-chip" role="listitem"><i class="fa-brands fa-js"></i> JavaScript</div>
         </div>
       </details>
 
@@ -507,17 +465,17 @@
         <summary>Development Tools</summary>
         <div class="skill-list" role="list">
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-python"></i> Jupyter</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-python"></i> PyCharm</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-code"></i> DataSpell</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-server"></i> FastAPI</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-flask"></i> Flask</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-code"></i> PyCharm</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-terminal"></i> DataSpell</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-network-wired"></i> FastAPI</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-network-wired"></i> Flask</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-plug"></i> REST API</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-jenkins"></i> Jenkins</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-docker"></i> Docker</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-kubernetes"></i> Kubernetes (AWS EKS / Azure AKS)</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-hammer"></i> Terraform</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-cogs"></i> Terraform</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-git-alt"></i> Git</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-flask-vial"></i> MLflow</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> MLflow</div>
         </div>
       </details>
 
@@ -528,8 +486,8 @@
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-microsoft"></i> Azure ML</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-databricks"></i> Databricks</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-code-branch"></i> CI/CD Pipelines</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-gear"></i> Kubeflow</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-flask"></i> MLflow</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-cubes"></i> Kubeflow</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> MLflow</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-github"></i> GitHub Actions</div>
         </div>
       </details>
@@ -537,15 +495,15 @@
       <details>
         <summary>Data Engineering</summary>
         <div class="skill-list" role="list">
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-apache"></i> Apache Spark</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-apache"></i> Apache Kafka</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-apache"></i> Apache Airflow</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> Apache Spark</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> Apache Kafka</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> Apache Airflow</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-aws"></i> AWS Glue</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-aws"></i> AWS Kinesis</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> PostgreSQL</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> MySQL</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-database"></i> MS SQL Server</div>
-          <div class="skill-chip" role="listitem"><i class="fa-brands fa-aws"></i> Amazon OpenSearch</div>
+          <div class="skill-chip" role="listitem"><i class="fa-brands fa-amazon"></i> Amazon OpenSearch</div>
           <div class="skill-chip" role="listitem"><i class="fa-brands fa-searchengin"></i> Elasticsearch</div>
         </div>
       </details>
@@ -553,11 +511,11 @@
       <details>
         <summary>Mathematics & Statistics</summary>
         <div class="skill-list" role="list">
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-percent"></i> Probability</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-chart-line"></i> Statistics</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-square-root-alt"></i> Linear Algebra</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-calculator"></i> Probability</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-calculator"></i> Statistics</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-calculator"></i> Linear Algebra</div>
           <div class="skill-chip" role="listitem"><i class="fa-solid fa-calculator"></i> Calculus</div>
-          <div class="skill-chip" role="listitem"><i class="fa-solid fa-clock"></i> Time Series Forecasting (ARIMA, SARIMA, Prophet, LSTM)</div>
+          <div class="skill-chip" role="listitem"><i class="fa-solid fa-chart-line"></i> Time Series Forecasting (ARIMA, SARIMA, Prophet, LSTM)</div>
         </div>
       </details>
 
@@ -594,62 +552,61 @@
       </details>
     </section>
 
-    <section id="experience" tabindex="0" aria-label="Professional Experience">
-      <h2>Professional Experience</h2>
-      <div class="exp-wrapper" role="region" aria-live="polite" aria-label="Experience horizontal scroll container">
-        <div class="exp-row">
-
-          <article class="exp-card" tabindex="0" aria-label="Fidelity Investments experience details">
+    <section id="experience" tabindex="0" aria-label="Experience">
+      <h2>Experience</h2>
+      <div class="exp-wrapper" tabindex="0" aria-label="Scrollable list of work experience">
+        <div class="exp-row" role="list">
+          <article class="exp-card" role="listitem" tabindex="0" aria-describedby="fidelity-desc">
             <div class="company">Fidelity Investments</div>
             <div class="role">Senior ML Engineer (ECCP) | May 2024 – Present</div>
-            <ul class="bullets">
+            <ul class="bullets" id="fidelity-desc">
               <li>Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.</li>
               <li>Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.</li>
               <li>Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.</li>
             </ul>
           </article>
 
-          <article class="exp-card" tabindex="0" aria-label="Teladoc Health experience details">
+          <article class="exp-card" role="listitem" tabindex="0" aria-describedby="teladoc-desc">
             <div class="company">Teladoc Health</div>
             <div class="role">ML Engineer | Jul 2021 – Aug 2022</div>
-            <ul class="bullets">
+            <ul class="bullets" id="teladoc-desc">
               <li>Enhanced virtual health assistant AI, raising satisfaction scores 25%.</li>
               <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.</li>
               <li>Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.</li>
             </ul>
           </article>
 
-          <article class="exp-card" tabindex="0" aria-label="DataBeat experience details">
+          <article class="exp-card" role="listitem" tabindex="0" aria-describedby="databeat-desc">
             <div class="company">DataBeat</div>
             <div class="role">Data Engineer | Jun 2019 – Jun 2021</div>
-            <ul class="bullets">
+            <ul class="bullets" id="databeat-desc">
               <li>Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.</li>
               <li>Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.</li>
               <li>Developed real-time ingestion workflows enabling instant search ranking updates.</li>
             </ul>
           </article>
 
-          <article class="exp-card" tabindex="0" aria-label="iLink Digital experience details">
+          <article class="exp-card" role="listitem" tabindex="0" aria-describedby="ilink-desc">
             <div class="company">iLink Digital</div>
             <div class="role">Python Developer | May 2017 – May 2019</div>
-            <ul class="bullets">
+            <ul class="bullets" id="ilink-desc">
               <li>Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.</li>
               <li>Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.</li>
               <li>Developed ETL workflows with indexing/caching, improving query performance 70%.</li>
             </ul>
           </article>
-
         </div>
       </div>
     </section>
 
-    <section id="contact" tabindex="0" aria-label="Contact Form">
+    <section id="contact" tabindex="0" aria-label="Contact form">
       <h2>Get in Touch</h2>
+      <!-- Embed Google Form iframe, make sure your Google Form settings allow iframe embedding -->
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSdeW2p1WxpbFpCqjLn6V0n1sNA-btiR2rlOWqHiFleTjqudaQ/viewform?embedded=true"
-        title="Google contact form"
+        aria-label="Contact form to send message to Leela Prasad"
         loading="lazy"
-        aria-hidden="false"
+        title="Contact Google Form"
       ></iframe>
     </section>
 
@@ -658,6 +615,7 @@
 
 </body>
 </html>
+
 
 
 
