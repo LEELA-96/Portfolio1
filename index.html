@@ -3,616 +3,520 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Leela Prasad A | Senior AI/ML Engineer Portfolio</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<title>Leela Prasad A - AI/ML Engineer Portfolio</title>
+
+<!-- FontAwesome for icons -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
 <style>
   /* Reset & base */
   * {
     box-sizing: border-box;
   }
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #222, #555);
-    color: #ddd;
-    line-height: 1.6;
-    min-height: 100vh;
+  body, html {
+    margin: 0; padding: 0; height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
   }
   a {
-    color: #ccc;
+    color: #007acc;
     text-decoration: none;
   }
   a:hover {
+    text-decoration: underline;
+  }
+
+  /* Layout */
+  #container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #left-panel {
+    flex: 0 0 320px;
+    background: #1e1e2f;
     color: #fff;
-  }
-
-  /* Sticky header */
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(192, 192, 192, 0.95);
-    backdrop-filter: saturate(180%) blur(15px);
-    color: #111;
-    padding: 1rem 3rem;
-    font-weight: 900;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  header .name {
-    font-family: 'Segoe UI Black', sans-serif;
-    color: #333;
-    user-select: none;
-  }
-  header .contact {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  header .contact span {
-    margin-left: 1.5rem;
-  }
-  header .contact a {
-    color: #555;
-  }
-
-  main {
-    max-width: none;
-    padding: 2rem 5vw;
-    margin: 0 auto;
-    width: 100%;
-  }
-  section {
-    margin-bottom: 3.5rem;
-    background: rgba(255 255 255 / 0.07);
-    padding: 2rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 0 30px #0008 inset;
-    max-width: 1400px;
-  }
-  h2 {
-    font-weight: 900;
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
-    color: silver;
-    border-bottom: 2px solid #888;
-    padding-bottom: 0.4rem;
-  }
-
-  /* SUMMARY */
-  #summary p {
-    font-size: 1.1rem;
-    max-width: 1200px;
-  }
-
-  /* SKILLS */
-  #skills > h3 {
-    margin-top: 2.2rem;
-    margin-bottom: 1rem;
-    color: #bbb;
-    font-weight: 700;
-    border-bottom: 1px solid #555;
-    padding-bottom: 0.3rem;
-  }
-  #skills .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-    gap: 1.3rem 2.4rem;
-  }
-  .skill {
-    background: rgba(255 255 255 / 0.12);
-    border-radius: 10px;
-    padding: 1.2rem 1.4rem;
-    text-align: center;
-    box-shadow: 0 0 15px #0005 inset;
-    transition: background 0.3s ease, transform 0.3s ease;
-    cursor: default;
-  }
-  .skill:hover {
-    background: rgba(255 255 255 / 0.35);
-    transform: translateY(-5px);
-  }
-  .skill i {
-    font-size: 2.4rem;
-    color: silver;
-    margin-bottom: 0.6rem;
-  }
-  .skill span {
-    display: block;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #ddd;
-  }
-
-  /* EXPERIENCE */
-  #experience .projects-wrapper {
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-  #experience .projects-grid {
-    display: flex;
-    gap: 2.4rem;
-    min-width: max-content;
-  }
-  .project-card {
-    position: relative;
-    background: rgba(255 255 255 / 0.08);
-    border-radius: 14px;
-    padding: 2rem 2.4rem;
-    box-shadow: 0 0 20px #0007 inset;
-    cursor: pointer;
-    overflow: visible;
-    flex: 0 0 420px;
+    padding: 30px 25px;
     display: flex;
     flex-direction: column;
-    min-height: 350px;
+    position: fixed;
+    height: 100vh;
+    width: 320px;
   }
-  .project-title {
+  #left-panel h1 {
+    font-size: 2.4rem;
     font-weight: 900;
-    font-size: 1.3rem;
-    color: silver;
-    margin-bottom: 0.3rem;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  .project-subtitle {
-    font-style: italic;
+  #left-panel p.title {
+    font-weight: 600;
     font-size: 1rem;
-    margin-bottom: 1.3rem;
-    color: #bbb;
+    opacity: 0.75;
+    margin-bottom: 15px;
   }
-  .project-hover {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #111c29dd;
-    color: #eee;
-    opacity: 0;
-    padding: 2rem 2.4rem;
-    border-radius: 14px;
-    overflow-y: auto;
-    font-size: 1rem;
-    line-height: 1.5;
-    transition: opacity 0.35s ease;
-    z-index: 15;
+  #left-panel .contact-info {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
   }
-  .project-card:hover .project-hover {
-    opacity: 1;
+  #left-panel .contact-info a {
+    color: #9acdff;
   }
-  /* Hover overlay scrollbars */
-  .project-hover::-webkit-scrollbar {
-    width: 7px;
-  }
-  .project-hover::-webkit-scrollbar-thumb {
-    background-color: #444;
-    border-radius: 3px;
-  }
-  .project-hover::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* EDUCATION & CERTIFICATES container */
-  #education-certificates {
-    display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
-    max-width: 1400px;
-  }
-
-  #education, #certificates {
-    flex: 1 1 45%;
-    background: rgba(255 255 255 / 0.07);
-    padding: 2rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 0 30px #0008 inset;
-  }
-  #education h2, #certificates h2 {
-    margin-top: 0;
-  }
-
-  /* EDUCATION */
-  #education ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 1.4rem;
-  }
-  #education li {
-    margin-bottom: 1.5rem;
-    color: silver;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-  #education li span {
-    font-weight: 400;
-    display: block;
-    margin-top: 0.3rem;
-    color: #bbb;
-    font-size: 1rem;
-  }
-
-  /* CERTIFICATES */
-  #certificates .cert-card {
-    position: relative;
-    background: rgba(255 255 255 / 0.08);
-    border-radius: 14px;
-    padding: 1.8rem 2.2rem;
-    box-shadow: 0 0 18px #0007 inset;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    color: silver;
-    font-weight: 700;
-    text-align: center;
-    transition: background 0.3s ease, color 0.3s ease;
-    font-size: 1.05rem;
-  }
-  #certificates .cert-card:hover {
-    background: #444;
-    color: #eee;
-  }
-  #certificates .cert-card .cert-text {
-    transition: opacity 0.3s ease;
-  }
-  #certificates .cert-card:hover .cert-text {
-    opacity: 0;
-  }
-  #certificates .cert-card .cert-hover {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #222b3ddd;
-    color: #ddd;
-    padding: 1.5rem 1.8rem;
+  #left-panel .contact-info div {
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 14px;
-    opacity: 0;
-    transition: opacity 0.35s ease;
   }
-  #certificates .cert-card:hover .cert-hover {
-    opacity: 1;
+  #left-panel .contact-info i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    color: #9acdff;
   }
 
-  /* GET IN TOUCH FORM */
-  #contact {
-    background: rgba(255 255 255 / 0.07);
-    padding: 2.5rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 0 30px #0008 inset;
-    max-width: 1400px;
+  /* Right panel scroll */
+  #right-panel {
+    margin-left: 320px;
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 30px 50px;
+    background: #fff;
   }
-  #contact h2 {
-    margin-top: 0;
+
+  /* Section titles */
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #111;
+    border-bottom: 3px solid #007acc;
+    padding-bottom: 5px;
   }
-  form {
+
+  /* Summary */
+  #summary {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  /* Skills */
+  #skills {
+    margin-bottom: 50px;
+  }
+  #skills h3 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    color: #222;
+  }
+  .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.8rem 3rem;
-    justify-content: start;
+    gap: 10px 12px;
   }
-  label {
-    display: block;
-    color: silver;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  input {
-    border-radius: 10px;
-    border: none;
-    padding: 0.9rem 1.2rem;
-    font-size: 1rem;
-    background: rgba(255 255 255 / 0.15);
-    color: #eee;
-    width: 280px;
-    transition: background 0.25s ease;
-  }
-  input:focus {
-    outline: 2px solid silver;
-    background: rgba(255 255 255 / 0.35);
-  }
-  button {
-    background: silver;
-    border: none;
-    padding: 0.95rem 3.2rem;
-    border-radius: 10px;
-    font-weight: 900;
-    font-size: 1.1rem;
+  .skill {
+    background: #e1e7f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
     color: #222;
-    cursor: pointer;
-    margin-top: 1.8rem;
-    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+    max-width: 140px;
+    cursor: default;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+    transition: background-color 0.3s;
   }
-  button:hover {
-    background: #eee;
+  .skill i {
+    margin-right: 8px;
+    font-size: 1.15rem;
+    color: #007acc;
+  }
+  .skill:hover {
+    background: #c8d9ff;
   }
 
-  /* Responsive tweaks */
-  @media (max-width: 900px) {
-    #education-certificates {
-      flex-direction: column;
-    }
-    #education, #certificates {
-      flex: 1 1 100%;
-      margin-bottom: 2rem;
-    }
-    header {
-      flex-direction: column;
-      font-size: 1.4rem;
-      gap: 0.6rem;
-      padding: 1rem 2rem;
-    }
-    main {
-      padding: 2rem 3vw;
-    }
-    form {
-      justify-content: center;
-    }
-    input {
-      width: 100%;
-      max-width: 400px;
-    }
-    button {
-      width: 100%;
-      max-width: 400px;
-    }
+  /* Experience */
+  #experience {
+    margin-bottom: 50px;
+  }
+  .projects-wrapper {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  .projects-grid {
+    display: flex;
+    gap: 24px;
+    min-width: 1000px;
+  }
+  .project-card {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 20px;
+    width: 450px;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-title {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #00509e;
+    margin-bottom: 3px;
+  }
+  .project-subtitle {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .project-hover {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #444;
+    overflow-y: auto;
+    max-height: 200px;
+    padding-right: 10px;
+  }
+  /* Scrollbar for project-hover */
+  .project-hover::-webkit-scrollbar {
+    width: 6px;
+  }
+  .project-hover::-webkit-scrollbar-thumb {
+    background: #007acc;
+    border-radius: 3px;
+  }
+
+  /* Education and Certifications */
+  #education-certificates {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+  #education, #certificates {
+    flex: 1;
+  }
+  #education h2, #certificates h2 {
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+  }
+  #education ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  #education ul li {
+    margin-bottom: 14px;
+  }
+  #education ul li span {
+    display: block;
+    font-weight: 600;
+    color: #555;
+  }
+  .cert-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #1c1c1c;
+    position: relative;
+    cursor: default;
+  }
+  .cert-hover {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #007acc;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: normal;
+    white-space: nowrap;
+    z-index: 20;
+  }
+  .cert-card:hover .cert-hover,
+  .cert-card:focus .cert-hover {
+    display: block;
+  }
+
+  /* Contact */
+  #contact {
+    margin-bottom: 80px;
+  }
+  #contact h2 {
+    margin-bottom: 20px;
+  }
+  iframe {
+    width: 100%;
+    height: 560px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+  }
+
+  /* Scrollbar styling for right panel */
+  #right-panel::-webkit-scrollbar {
+    width: 12px;
+  }
+  #right-panel::-webkit-scrollbar-thumb {
+    background: #007acc;
+    border-radius: 6px;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="name">Leela Prasad A</div>
-  <div class="contact">
-    📧 <a href="mailto:leelaprasad.it@gmail.com" target="_blank" rel="noopener noreferrer">leelaprasad.it@gmail.com</a>
-    <span>📱 +1 (469) 298-9432</span>
-    <span><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn/GitHub</a></span>
-  </div>
-</header>
+<div id="container">
+  <aside id="left-panel" aria-label="Profile and contact info">
+    <h1>Leela Prasad A</h1>
+    <p class="title">Senior AI/ML Engineer – AWS Certified | Dallas, TX</p>
 
-<main>
-  <section id="summary">
-    <h2>Summary</h2>
-    <p>
-      Senior AI/ML Engineer with 8+ years in Generative AI, NLP, and data engineering across finance, healthcare, and e-commerce.
-      Expert in RAG platforms, LLMOps, and hybrid-cloud deployments, delivering 40% faster query resolution, 30% hallucination reduction, and 99.9% uptime.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>Technical Skills</h2>
-
-    <h3>Data Analysis & Visualization</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Excel"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
-      <div class="skill" title="Tableau"><i class="fa-solid fa-chart-simple"></i><span>Tableau</span></div>
-      <div class="skill" title="AWS QuickSight"><i class="fa-brands fa-aws"></i><span>AWS QuickSight</span></div>
-      <div class="skill" title="Snowflake"><i class="fa-brands fa-snowflake"></i><span>Snowflake</span></div>
-      <div class="skill" title="Pandas"><i class="fa-solid fa-database"></i><span>Pandas</span></div>
-      <div class="skill" title="NumPy"><i class="fa-solid fa-square-root-variable"></i><span>NumPy</span></div>
-      <div class="skill" title="Matplotlib"><i class="fa-solid fa-chart-area"></i><span>Matplotlib</span></div>
-      <div class="skill" title="Seaborn"><i class="fa-solid fa-water"></i><span>Seaborn</span></div>
-      <div class="skill" title="SciPy"><i class="fa-solid fa-flask"></i><span>SciPy</span></div>
-      <div class="skill" title="LangChain"><i class="fa-solid fa-link"></i><span>LangChain</span></div>
-      <div class="skill" title="LangSmith"><i class="fa-solid fa-pen-nib"></i><span>LangSmith</span></div>
-      <div class="skill" title="OpenCV"><i class="fa-solid fa-camera"></i><span>OpenCV</span></div>
-      <div class="skill" title="PySpark"><i class="fa-brands fa-python"></i><span>PySpark</span></div>
-      <div class="skill" title="Scikit-Learn"><i class="fa-solid fa-robot"></i><span>Scikit-Learn</span></div>
-      <div class="skill" title="XGBoost"><i class="fa-solid fa-arrow-up"></i><span>XGBoost</span></div>
-      <div class="skill" title="Sentence Transformers"><i class="fa-solid fa-language"></i><span>Sentence Transformers</span></div>
+    <div class="contact-info">
+      <div><i class="fa-solid fa-envelope"></i> <a href="mailto:leelaprasad.it@gmail.com">leelaprasad.it@gmail.com</a></div>
+      <div><i class="fa-solid fa-phone"></i> +1 (469) 298-9432</div>
+      <div><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/leelaprasad" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div><i class="fa-brands fa-github"></i> <a href="https://github.com/leelaprasad" target="_blank" rel="noopener">GitHub</a></div>
     </div>
+  </aside>
 
-    <h3>Generative AI & NLP</h3>
-    <div class="skills-grid">
-      <div class="skill" title="LLMs"><i class="fa-solid fa-brain"></i><span>LLMs</span></div>
-      <div class="skill" title="RAG"><i class="fa-solid fa-network-wired"></i><span>RAG</span></div>
-      <div class="skill" title="Prompt Engineering"><i class="fa-solid fa-lightbulb"></i><span>Prompt Eng.</span></div>
-      <div class="skill" title="Transformers"><i class="fa-solid fa-cogs"></i><span>Transformers</span></div>
-      <div class="skill" title="LoRA / QLoRA / PEFT"><i class="fa-solid fa-gear"></i><span>LoRA/QLoRA/PEFT</span></div>
-      <div class="skill" title="OpenAI GPT-4/GPT-3.5"><i class="fa-brands fa-openai"></i><span>OpenAI GPT</span></div>
-      <div class="skill" title="Anthropic LLMs"><i class="fa-solid fa-robot"></i><span>Anthropic</span></div>
-      <div class="skill" title="Amazon Bedrock"><i class="fa-brands fa-aws"></i><span>Amazon Bedrock</span></div>
-    </div>
-
-    <h3>Programming Languages</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Python"><i class="fa-brands fa-python"></i><span>Python</span></div>
-      <div class="skill" title="SQL"><i class="fa-solid fa-database"></i><span>SQL</span></div>
-      <div class="skill" title="JavaScript"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
-    </div>
-
-    <h3>Development Tools</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Jupyter"><i class="fa-solid fa-book"></i><span>Jupyter</span></div>
-      <div class="skill" title="PyCharm"><i class="fa-brands fa-python"></i><span>PyCharm</span></div>
-      <div class="skill" title="FastAPI"><i class="fa-solid fa-server"></i><span>FastAPI</span></div>
-      <div class="skill" title="Flask"><i class="fa-solid fa-flask"></i><span>Flask</span></div>
-      <div class="skill" title="Docker"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
-      <div class="skill" title="Kubernetes"><i class="fa-brands fa-kubernetes"></i><span>Kubernetes</span></div>
-      <div class="skill" title="Terraform"><i class="fa-solid fa-wrench"></i><span>Terraform</span></div>
-      <div class="skill" title="Git"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-      <div class="skill" title="MLflow"><i class="fa-solid fa-chart-line"></i><span>MLflow</span></div>
-      <div class="skill" title="Jenkins"><i class="fa-brands fa-jenkins"></i><span>Jenkins</span></div>
-    </div>
-
-    <h3>MLOps & LLMOps</h3>
-    <div class="skills-grid">
-      <div class="skill" title="AWS SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
-      <div class="skill" title="Azure ML"><i class="fa-brands fa-microsoft"></i><span>Azure ML</span></div>
-      <div class="skill" title="Databricks"><i class="fa-solid fa-database"></i><span>Databricks</span></div>
-      <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-code-branch"></i><span>CI/CD</span></div>
-      <div class="skill" title="Kubeflow"><i class="fa-solid fa-cubes"></i><span>Kubeflow</span></div>
-      <div class="skill" title="GitHub Actions"><i class="fa-brands fa-github"></i><span>GitHub Actions</span></div>
-    </div>
-
-    <h3>Data Engineering</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Apache Spark"><i class="fa-brands fa-java"></i><span>Spark</span></div>
-      <div class="skill" title="Apache Kafka"><i class="fa-solid fa-microphone-lines"></i><span>Kafka</span></div>
-      <div class="skill" title="Apache Airflow"><i class="fa-solid fa-wind"></i><span>Airflow</span></div>
-      <div class="skill" title="AWS Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
-      <div class="skill" title="AWS Kinesis"><i class="fa-brands fa-aws"></i><span>Kinesis</span></div>
-      <div class="skill" title="PostgreSQL"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
-      <div class="skill" title="MySQL"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
-      <div class="skill" title="MS SQL Server"><i class="fa-solid fa-database"></i><span>MS SQL Server</span></div>
-      <div class="skill" title="OpenSearch"><i class="fa-brands fa-aws"></i><span>OpenSearch</span></div>
-      <div class="skill" title="Elasticsearch"><i class="fa-brands fa-searchengin"></i><span>Elasticsearch</span></div>
-    </div>
-
-    <h3>Mathematics & Statistics</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Probability"><i class="fa-solid fa-dice"></i><span>Probability</span></div>
-      <div class="skill" title="Statistics"><i class="fa-solid fa-chart-bar"></i><span>Statistics</span></div>
-      <div class="skill" title="Linear Algebra"><i class="fa-solid fa-vector-square"></i><span>Linear Algebra</span></div>
-      <div class="skill" title="Calculus"><i class="fa-solid fa-square-root-variable"></i><span>Calculus</span></div>
-      <div class="skill" title="Time Series Forecasting"><i class="fa-solid fa-clock"></i><span>Time Series Forecasting</span></div>
-    </div>
-
-    <h3>AWS Cloud Services</h3>
-    <div class="skills-grid">
-      <div class="skill" title="S3"><i class="fa-brands fa-aws"></i><span>S3</span></div>
-      <div class="skill" title="RDS"><i class="fa-brands fa-aws"></i><span>RDS</span></div>
-      <div class="skill" title="DynamoDB"><i class="fa-brands fa-aws"></i><span>DynamoDB</span></div>
-      <div class="skill" title="Step Functions"><i class="fa-solid fa-cogs"></i><span>Step Functions</span></div>
-      <div class="skill" title="Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
-      <div class="skill" title="Athena"><i class="fa-brands fa-aws"></i><span>Athena</span></div>
-      <div class="skill" title="Redshift"><i class="fa-brands fa-aws"></i><span>Redshift</span></div>
-      <div class="skill" title="QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
-      <div class="skill" title="Lambda"><i class="fa-solid fa-lambda"></i><span>Lambda</span></div>
-      <div class="skill" title="IAM"><i class="fa-solid fa-id-badge"></i><span>IAM</span></div>
-      <div class="skill" title="CloudWatch"><i class="fa-solid fa-eye"></i><span>CloudWatch</span></div>
-      <div class="skill" title="EC2"><i class="fa-solid fa-server"></i><span>EC2</span></div>
-      <div class="skill" title="EBS"><i class="fa-solid fa-hdd"></i><span>EBS</span></div>
-      <div class="skill" title="EFS"><i class="fa-solid fa-folder"></i><span>EFS</span></div>
-      <div class="skill" title="CodeCommit"><i class="fa-brands fa-aws"></i><span>CodeCommit</span></div>
-      <div class="skill" title="CodeBuild"><i class="fa-brands fa-aws"></i><span>CodeBuild</span></div>
-      <div class="skill" title="CodeDeploy"><i class="fa-brands fa-aws"></i><span>CodeDeploy</span></div>
-    </div>
-
-    <h3>Operating Systems</h3>
-    <div class="skills-grid">
-      <div class="skill" title="Windows"><i class="fa-brands fa-windows"></i><span>Windows</span></div>
-      <div class="skill" title="Linux"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="projects-wrapper" aria-label="Experience Projects - horizontal scroll container" tabindex="0">
-      <div class="projects-grid">
-        <!-- Fidelity -->
-        <div class="project-card" tabindex="0" aria-label="Fidelity Investments - Senior ML Engineer ECCP">
-          <div class="project-title">Fidelity Investments</div>
-          <div class="project-subtitle">Senior ML Engineer (ECCP) | May 2024 – Present</div>
-          <div class="project-hover" role="tooltip" aria-hidden="true">
-            Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.
-            <br /><br />
-            Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.
-            <br /><br />
-            Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.
-          </div>
-        </div>
-
-        <!-- Teladoc -->
-        <div class="project-card" tabindex="0" aria-label="Teladoc Health - ML Engineer">
-          <div class="project-title">Teladoc Health</div>
-          <div class="project-subtitle">ML Engineer | Jul 2021 – Aug 2022</div>
-          <div class="project-hover" role="tooltip" aria-hidden="true">
-            Enhanced virtual health assistant AI, raising satisfaction scores 25%.
-            <br /><br />
-            Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.
-            <br /><br />
-            Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.
-          </div>
-        </div>
-
-        <!-- DataBeat -->
-        <div class="project-card" tabindex="0" aria-label="DataBeat - Data Engineer">
-          <div class="project-title">DataBeat</div>
-          <div class="project-subtitle">Data Engineer | Jun 2019 – Jun 2021</div>
-          <div class="project-hover" role="tooltip" aria-hidden="true">
-            Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.
-            <br /><br />
-            Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.
-            <br /><br />
-            Developed real-time ingestion workflows enabling instant search ranking updates.
-          </div>
-        </div>
-
-        <!-- iLink Digital -->
-        <div class="project-card" tabindex="0" aria-label="iLink Digital - Python Developer">
-          <div class="project-title">iLink Digital</div>
-          <div class="project-subtitle">Python Developer | May 2017 – May 2019</div>
-          <div class="project-hover" role="tooltip" aria-hidden="true">
-            Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.
-            <br /><br />
-            Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.
-            <br /><br />
-            Developed ETL workflows with indexing/caching, improving query performance 70%.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education-certificates">
-    <section id="education" aria-label="Education">
-      <h2>Education</h2>
-      <ul>
-        <li>
-          MS, Computer Science
-          <span>University of North Texas</span>
-        </li>
-        <li>
-          BTech, Computer Science Engineering
-          <span>SRKR Engineering College</span>
-        </li>
-      </ul>
+  <main id="right-panel">
+    <section id="summary" aria-label="Professional summary">
+      <h2>Summary</h2>
+      <p>
+        Senior AI/ML Engineer with 8+ years in Generative AI, NLP, and data engineering across finance, healthcare, and e-commerce. Expert in RAG platforms, LLMOps, and hybrid-cloud deployments, delivering 40% faster query resolution, 30% hallucination reduction, and 99.9% uptime.
+      </p>
     </section>
 
-    <section id="certificates" aria-label="Certifications">
-      <h2>Certifications</h2>
-      <div class="cert-card" tabindex="0" aria-label="AWS ML Specialty Certification">
-        <div class="cert-text">AWS ML Specialty</div>
-        <div class="cert-hover">AWS Certified Machine Learning - Specialty</div>
+    <section id="skills" aria-label="Technical skills">
+      <h2>Technical Skills</h2>
+
+      <h3>Data Analysis & Visualization</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Excel"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
+        <div class="skill" title="Tableau"><i class="fa-solid fa-chart-pie"></i><span>Tableau</span></div>
+        <div class="skill" title="AWS QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
+        <div class="skill" title="Snowflake"><i class="fa-solid fa-snowflake"></i><span>Snowflake</span></div>
+        <div class="skill" title="Pandas"><i class="fa-brands fa-python"></i><span>Pandas</span></div>
+        <div class="skill" title="NumPy"><i class="fa-solid fa-code"></i><span>NumPy</span></div>
+        <div class="skill" title="Matplotlib"><i class="fa-solid fa-chart-area"></i><span>Matplotlib</span></div>
+        <div class="skill" title="Seaborn"><i class="fa-solid fa-water"></i><span>Seaborn</span></div>
+        <div class="skill" title="SciPy"><i class="fa-solid fa-flask"></i><span>SciPy</span></div>
+        <div class="skill" title="LangChain"><i class="fa-solid fa-link"></i><span>LangChain</span></div>
+        <div class="skill" title="LangSmith"><i class="fa-solid fa-pen-to-square"></i><span>LangSmith</span></div>
+        <div class="skill" title="OpenCV"><i class="fa-solid fa-camera"></i><span>OpenCV</span></div>
+        <div class="skill" title="PySpark"><i class="fa-brands fa-python"></i><span>PySpark</span></div>
+        <div class="skill" title="Scikit-Learn"><i class="fa-solid fa-brain"></i><span>Scikit-Learn</span></div>
+        <div class="skill" title="XGBoost"><i class="fa-solid fa-bolt"></i><span>XGBoost</span></div>
+        <div class="skill" title="Sentence Transformers"><i class="fa-solid fa-robot"></i><span>Sentence Transformers</span></div>
       </div>
-      <div class="cert-card" tabindex="0" aria-label="Azure AI Associate Certification">
-        <div class="cert-text">Azure AI Associate</div>
-        <div class="cert-hover">Microsoft Azure AI Fundamentals certification</div>
+
+      <h3>Generative AI & NLP</h3>
+      <div class="skills-grid">
+        <div class="skill" title="LLMs"><i class="fa-solid fa-robot"></i><span>LLMs</span></div>
+        <div class="skill" title="RAG"><i class="fa-solid fa-layer-group"></i><span>RAG</span></div>
+        <div class="skill" title="Prompt Engineering"><i class="fa-solid fa-lightbulb"></i><span>Prompt Eng.</span></div>
+        <div class="skill" title="Transformers"><i class="fa-solid fa-cogs"></i><span>Transformers</span></div>
+        <div class="skill" title="LoRA"><i class="fa-solid fa-network-wired"></i><span>LoRA</span></div>
+        <div class="skill" title="QLoRA"><i class="fa-solid fa-network-wired"></i><span>QLoRA</span></div>
+        <div class="skill" title="PEFT"><i class="fa-solid fa-gears"></i><span>PEFT</span></div>
+        <div class="skill" title="OpenAI GPT-4/GPT-3.5"><i class="fa-brands fa-openai"></i><span>OpenAI GPT-4/3.5</span></div>
+        <div class="skill" title="Anthropic LLMs"><i class="fa-solid fa-brain"></i><span>Anthropic</span></div>
+        <div class="skill" title="Amazon Bedrock"><i class="fa-brands fa-aws"></i><span>Amazon Bedrock</span></div>
       </div>
-      <div class="cert-card" tabindex="0" aria-label="Generative AI DeepLearning.AI Certification">
-        <div class="cert-text">Generative AI (DeepLearning.AI)</div>
-        <div class="cert-hover">Completed Generative AI specialization by DeepLearning.AI</div>
+
+      <h3>Programming Languages</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Python"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill" title="SQL"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+        <div class="skill" title="JavaScript"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
       </div>
-      <div class="cert-card" tabindex="0" aria-label="Mathematics for ML Imperial College Certification">
-        <div class="cert-text">Mathematics for ML (Imperial College)</div>
-        <div class="cert-hover">Completed Mathematics for Machine Learning course by Imperial College London</div>
+
+      <h3>Development Tools</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Jupyter"><i class="fa-solid fa-book-open"></i><span>Jupyter</span></div>
+        <div class="skill" title="PyCharm"><i class="fa-brands fa-python"></i><span>PyCharm</span></div>
+        <div class="skill" title="DataSpell"><i class="fa-solid fa-code"></i><span>DataSpell</span></div>
+        <div class="skill" title="FastAPI"><i class="fa-solid fa-bolt"></i><span>FastAPI</span></div>
+        <div class="skill" title="Flask"><i class="fa-brands fa-python"></i><span>Flask</span></div>
+        <div class="skill" title="REST API"><i class="fa-solid fa-network-wired"></i><span>REST API</span></div>
+        <div class="skill" title="Jenkins"><i class="fa-brands fa-jenkins"></i><span>Jenkins</span></div>
+        <div class="skill" title="Docker"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+        <div class="skill" title="Kubernetes"><i class="fa-brands fa-kubernetes"></i><span>Kubernetes</span></div>
+        <div class="skill" title="Terraform"><i class="fa-solid fa-wrench"></i><span>Terraform</span></div>
+        <div class="skill" title="Git"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+        <div class="skill" title="MLflow"><i class="fa-solid fa-chart-line"></i><span>MLflow</span></div>
       </div>
-      <div class="cert-card" tabindex="0" aria-label="Databases & SQL IBM Certification">
-        <div class="cert-text">Databases & SQL (IBM)</div>
-        <div class="cert-hover">Completed Databases & SQL course by IBM</div>
+
+      <h3>MLOps & LLMOps</h3>
+      <div class="skills-grid">
+        <div class="skill" title="AWS SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
+        <div class="skill" title="Azure ML"><i class="fa-brands fa-microsoft"></i><span>Azure ML</span></div>
+        <div class="skill" title="Databricks"><i class="fa-solid fa-database"></i><span>Databricks</span></div>
+        <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-code-branch"></i><span>CI/CD</span></div>
+        <div class="skill" title="Kubeflow"><i class="fa-solid fa-cubes"></i><span>Kubeflow</span></div>
+        <div class="skill" title="GitHub Actions"><i class="fa-brands fa-github"></i><span>GitHub Actions</span></div>
+      </div>
+
+      <h3>Data Engineering</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Apache Spark"><i class="fa-brands fa-java"></i><span>Spark</span></div>
+        <div class="skill" title="Apache Kafka"><i class="fa-solid fa-microphone-lines"></i><span>Kafka</span></div>
+        <div class="skill" title="Apache Airflow"><i class="fa-solid fa-wind"></i><span>Airflow</span></div>
+        <div class="skill" title="AWS Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
+        <div class="skill" title="AWS Kinesis"><i class="fa-brands fa-aws"></i><span>Kinesis</span></div>
+        <div class="skill" title="PostgreSQL"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
+        <div class="skill" title="MySQL"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
+        <div class="skill" title="MS SQL Server"><i class="fa-solid fa-database"></i><span>MS SQL</span></div>
+        <div class="skill" title="Amazon OpenSearch"><i class="fa-solid fa-search"></i><span>OpenSearch</span></div>
+        <div class="skill" title="Elasticsearch"><i class="fa-solid fa-search"></i><span>Elasticsearch</span></div>
+      </div>
+
+      <h3>Mathematics & Statistics</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Probability"><i class="fa-solid fa-percent"></i><span>Probability</span></div>
+        <div class="skill" title="Statistics"><i class="fa-solid fa-chart-column"></i><span>Statistics</span></div>
+        <div class="skill" title="Linear Algebra"><i class="fa-solid fa-vector-square"></i><span>Linear Algebra</span></div>
+        <div class="skill" title="Calculus"><i class="fa-solid fa-square-root-variable"></i><span>Calculus</span></div>
+        <div class="skill" title="Time Series Forecasting"><i class="fa-solid fa-clock"></i><span>Time Series</span></div>
+      </div>
+
+      <h3>AWS Cloud Services</h3>
+      <div class="skills-grid">
+        <div class="skill" title="SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
+        <div class="skill" title="S3"><i class="fa-solid fa-box"></i><span>S3</span></div>
+        <div class="skill" title="RDS"><i class="fa-solid fa-database"></i><span>RDS</span></div>
+        <div class="skill" title="DynamoDB"><i class="fa-solid fa-database"></i><span>DynamoDB</span></div>
+        <div class="skill" title="Step Functions"><i class="fa-solid fa-play"></i><span>Step Functions</span></div>
+        <div class="skill" title="Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
+        <div class="skill" title="Athena"><i class="fa-solid fa-search"></i><span>Athena</span></div>
+        <div class="skill" title="Redshift"><i class="fa-solid fa-database"></i><span>Redshift</span></div>
+        <div class="skill" title="QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
+        <div class="skill" title="Lambda"><i class="fa-solid fa-lambda"></i><span>Lambda</span></div>
+        <div class="skill" title="IAM"><i class="fa-solid fa-user-shield"></i><span>IAM</span></div>
+        <div class="skill" title="CloudWatch"><i class="fa-solid fa-eye"></i><span>CloudWatch</span></div>
+        <div class="skill" title="EC2"><i class="fa-solid fa-server"></i><span>EC2</span></div>
+        <div class="skill" title="EBS"><i class="fa-solid fa-hdd"></i><span>EBS</span></div>
+        <div class="skill" title="EFS"><i class="fa-solid fa-hdd"></i><span>EFS</span></div>
+        <div class="skill" title="CodeCommit"><i class="fa-solid fa-code-branch"></i><span>CodeCommit</span></div>
+        <div class="skill" title="CodeBuild"><i class="fa-solid fa-toolbox"></i><span>CodeBuild</span></div>
+        <div class="skill" title="CodeDeploy"><i class="fa-solid fa-rocket"></i><span>CodeDeploy</span></div>
+      </div>
+
+      <h3>Operating Systems</h3>
+      <div class="skills-grid">
+        <div class="skill" title="Windows"><i class="fa-brands fa-windows"></i><span>Windows</span></div>
+        <div class="skill" title="Linux"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
       </div>
     </section>
-  </section>
 
-  <section id="contact" aria-label="Get in Touch Form">
-    <h2>Get in Touch</h2>
-    <!-- Replace the form below with your own Google Form embed or any preferred method -->
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSf9J4e8LUoFrq5l0NUcnLq3NqXtEpy6cPbtGkf9QAvLfXyLB7A/viewform?embedded=true"
-      width="100%"
-      height="560"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-      title="Contact Form"
-      aria-label="Google contact form"
-    >
-      Loading…
-    </iframe>
-  </section>
-</main>
+    <section id="experience" aria-label="Work experience">
+      <h2>Experience</h2>
+
+      <div class="projects-wrapper" tabindex="0" aria-label="Scrollable list of work experiences">
+        <div class="projects-grid">
+          <div class="project-card" tabindex="0">
+            <div class="project-title">Fidelity Investments</div>
+            <div class="project-subtitle">Senior ML Engineer (ECCP) | May 2024 – Present</div>
+            <div class="project-hover">
+              <ul>
+                <li>Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.</li>
+                <li>Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.</li>
+                <li>Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <div class="project-title">Teladoc Health</div>
+            <div class="project-subtitle">ML Engineer | Jul 2021 – Aug 2022</div>
+            <div class="project-hover">
+              <ul>
+                <li>Enhanced virtual health assistant AI, raising satisfaction scores 25%.</li>
+                <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to <1 day.</li>
+                <li>Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <div class="project-title">DataBeat</div>
+            <div class="project-subtitle">Data Engineer | Jun 2019 – Jun 2021</div>
+            <div class="project-hover">
+              <ul>
+                <li>Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.</li>
+                <li>Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.</li>
+                <li>Developed real-time ingestion workflows enabling instant search ranking updates.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <div class="project-title">iLink Digital</div>
+            <div class="project-subtitle">Python Developer | May 2017 – May 2019</div>
+            <div class="project-hover">
+              <ul>
+                <li>Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.</li>
+                <li>Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.</li>
+                <li>Developed ETL workflows with indexing/caching, improving query performance 70%.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education-certificates" aria-label="Education and Certifications">
+      <div id="education">
+        <h2>Education</h2>
+        <ul>
+          <li><span>MS, Computer Science</span> – Univ. of North Texas</li>
+          <li><span>BTech, Computer Science & Engineering</span> – SRKR Engineering College</li>
+        </ul>
+      </div>
+
+      <div id="certificates">
+        <h2>Certifications</h2>
+        <div class="cert-card" tabindex="0">
+          AWS ML Specialty
+        </div>
+        <div class="cert-card" tabindex="0">
+          Azure AI Associate
+        </div>
+        <div class="cert-card" tabindex="0">
+          Generative AI (DeepLearning.AI)
+        </div>
+        <div class="cert-card" tabindex="0">
+          Mathematics for ML (Imperial College)
+        </div>
+        <div class="cert-card" tabindex="0">
+          Databases & SQL (IBM)
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact form">
+      <h2>Get in Touch</h2>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdeW2p1WxpbFpCqjLn6V0n1sNA-btiR2rlOWqHiFleTjqudaQ/viewform?embedded=true"
+        title="Google Contact Form"
+        loading="lazy"
+        aria-label="Contact form iframe"
+      ></iframe>
+    </section>
+  </main>
+</div>
 
 </body>
 </html>
+
 
