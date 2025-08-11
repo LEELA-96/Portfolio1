@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leela Prasad A — Senior AI/ML Engineer</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #7bd389;
+      --glass: rgba(255,255,255,0.04);
+      --maxw: 1000px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      background: linear-gradient(180deg,#071028 0%, #0f1724 100%);
+      color: #e6eef6;
+      font-family: Inter, sans-serif;
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+    }
+    .wrap {
+      max-width: var(--maxw);
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .header, .section {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+    .header h1 { margin: 0; font-size: 32px; }
+    .header .info { margin-top: 6px; color: var(--muted); font-size: 14px; }
+    .header .contacts a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 12px;
+      font-size: 14px;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .skill {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background: var(--glass);
+      border-radius: 8px;
+    }
+    .skill img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    /* Experience list with hover card */
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .job {
+      position: relative;
+      padding: 16px;
+      background: var(--glass);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: default;
+    }
+    .job img.logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+    .job .meta {
+      flex: 1;
+    }
+    .job h3 { margin: 0; font-size: 18px; }
+    .job .company { color: var(--muted); font-size: 14px; }
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      background: var(--card);
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      width: calc(100% - 24px);
+      z-index: 10;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .job:hover .tooltip {
+      display: block;
+    }
+
+    /* Certificates */
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .cert {
+      display: flex;
+      align-items: center;
+      background: var(--glass);
+      padding: 10px;
+      border-radius: 8px;
+      width: calc(50% - 12px);
+    }
+    .cert img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .cert { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <div class="header">
+      <h1>Leela Prasad A</h1>
+      <div class="info">Senior AI/ML Engineer • AWS Certified • Dallas, TX</div>
+      <div class="contacts">
+        <a href="mailto:leelaprasad.it@gmail.com">leelaprasad.it@gmail.com</a>
+        <a href="tel:+14692989432">+1 (469) 298-9432</a>
+        <!-- Add LinkedIn/GitHub icons or links -->
+      </div>
+      <p class="info" style="margin-top: 12px;">
+        Senior AI/ML Engineer with 8+ years in Generative AI, NLP, and data engineering across finance, healthcare, and e-commerce. Expert in RAG platforms, LLMOps, and hybrid-cloud deployments, delivering 40% faster query resolution, 30% hallucination reduction, and 99.9% uptime.
+      </p>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <!-- Repeat this for each skill -->
+        <div class="skill">
+          <img src="<!-- Python icon URL -->" alt="Python" /> Python
+        </div>
+        <div class="skill">
+          <img src="<!-- LangChain icon URL -->" alt="LangChain" /> LangChain
+        </div>
+        <div class="skill">
+          <img src="<!-- SageMaker icon URL -->" alt="AWS SageMaker" /> AWS SageMaker
+        </div>
+        <!-- … more skills ... -->
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <h2>Experience</h2>
+      <div class="job-list">
+
+        <!-- Fidelity -->
+        <div class="job">
+          <img class="logo" src="<!-- Fidelity logo URL -->" alt="Fidelity Investments" />
+          <div class="meta">
+            <h3>Senior ML Engineer (ECCP)</h3>
+            <div class="company">Fidelity Investments — May 2024 – Present</div>
+          </div>
+          <div class="tooltip">
+            <strong>Role & Projects:</strong><br>
+            Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.<br>
+            Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.<br>
+            Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.
+          </div>
+        </div>
+
+        <!-- Teladoc Health -->
+        <div class="job">
+          <img class="logo" src="<!-- Teladoc Health logo URL -->" alt="Teladoc Health" />
+          <div class="meta">
+            <h3>ML Engineer</h3>
+            <div class="company">Teladoc Health — Jul 2021 – Aug 2022</div>
+          </div>
+          <div class="tooltip">
+            <strong>Role & Projects:</strong><br>
+            Enhanced virtual health assistant AI, raising satisfaction scores 25%.<br>
+            Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.<br>
+            Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.
+          </div>
+        </div>
+
+        <!-- DataBeat -->
+        <div class="job">
+          <img class="logo" src="<!-- DataBeat logo URL -->" alt="DataBeat" />
+          <div class="meta">
+            <h3>Data Engineer</h3>
+            <div class="company">DataBeat — Jun 2019 – Jun 2021</div>
+          </div>
+          <div class="tooltip">
+            <strong>Role & Projects:</strong><br>
+            Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.<br>
+            Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.<br>
+            Developed real-time ingestion workflows enabling instant search ranking updates.
+          </div>
+        </div>
+
+        <!-- iLink Digital -->
+        <div class="job">
+          <img class="logo" src="<!-- iLink Digital logo URL -->" alt="iLink Digital" />
+          <div class="meta">
+            <h3>Python Developer</h3>
+            <div class="company">iLink Digital — May 2017 – May 2019</div>
+          </div>
+          <div class="tooltip">
+            <strong>Role & Projects:</strong><br>
+            Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.<br>
+            Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.<br>
+            Developed ETL workflows with indexing/caching, improving query performance 70%.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Education & Certifications -->
+    <div class="section">
+      <h2>Education & Certifications</h2>
+      <p>• MS, Computer Science – Univ. of North Texas<br>• BTech, CSE – SRKR Engineering College</p>
+      <div class="cert-grid">
+        <div class="cert">
+          <img src="<!-- AWS ML Specialty logo URL -->" alt="AWS ML Specialty" /> AWS ML Specialty
+        </div>
+        <div class="cert">
+          <img src="<!-- Azure AI Associate logo URL -->" alt="Azure AI Associate" /> Azure AI Associate
+        </div>
+        <div class="cert">
+          <img src="<!-- DeepLearning.AI Generative AI logo URL -->" alt="Generative AI (DeepLearning.AI)" /> Generative AI (DeepLearning.AI)
+        </div>
+        <div class="cert">
+          <img src="<!-- Imperial College Mathematics for ML logo URL -->" alt="Mathematics for ML (Imperial College)" /> Mathematics for ML (Imperial College)
+        </div>
+        <div class="cert">
+          <img src="<!-- IBM Databases & SQL logo URL -->" alt="Databases & SQL (IBM)" /> Databases & SQL (IBM)
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer or additional sections as needed -->
+  </div>
+</body>
+</html>
