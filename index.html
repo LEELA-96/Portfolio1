@@ -4,11 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Leela Prasad A | Senior AI/ML Engineer Portfolio</title>
-<!-- FontAwesome CDN for icons -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  rel="stylesheet"
-/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 <style>
   /* Reset & base */
   * {
@@ -90,6 +86,14 @@
   }
 
   /* SKILLS */
+  #skills > h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #bbb;
+    font-weight: 700;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.2rem;
+  }
   #skills .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
@@ -121,10 +125,14 @@
   }
 
   /* EXPERIENCE */
+  #experience .projects-wrapper {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
   #experience .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    display: flex;
     gap: 2rem;
+    min-width: max-content;
   }
   .project-card {
     position: relative;
@@ -133,12 +141,10 @@
     padding: 1.8rem 2rem;
     box-shadow: 0 0 20px #0007 inset;
     cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-  .project-card:hover {
-    transform: scale(1.05);
-    z-index: 10;
+    overflow: visible;
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
   }
   .project-title {
     font-weight: 800;
@@ -158,51 +164,95 @@
     background: #111c29dd;
     color: #eee;
     opacity: 0;
-    padding: 1.4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    padding: 1.4rem 1.8rem;
+    border-radius: 14px;
+    overflow-y: auto;
     font-size: 0.95rem;
     line-height: 1.4;
-    border-radius: 14px;
     transition: opacity 0.35s ease;
+    z-index: 15;
   }
   .project-card:hover .project-hover {
     opacity: 1;
   }
-
-  /* EDUCATION & CERTIFICATES */
-  #education-certificates .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 2rem;
+  /* Make hover overlay scrollable */
+  .project-hover::-webkit-scrollbar {
+    width: 6px;
   }
-  .cert-card {
+  .project-hover::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 3px;
+  }
+  .project-hover::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* EDUCATION & CERTIFICATES container */
+  #education-certificates {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  #education, #certificates {
+    flex: 1 1 45%;
+    background: rgba(255 255 255 / 0.07);
+    padding: 1.6rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #0008 inset;
+  }
+  #education h2, #certificates h2 {
+    margin-top: 0;
+  }
+
+  /* EDUCATION */
+  #education ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  #education li {
+    margin-bottom: 1.2rem;
+    color: silver;
+    font-weight: 700;
+  }
+  #education li span {
+    font-weight: 400;
+    display: block;
+    margin-top: 0.25rem;
+    color: #bbb;
+    font-size: 0.95rem;
+  }
+
+  /* CERTIFICATES */
+  #certificates .cert-card {
     position: relative;
     background: rgba(255 255 255 / 0.08);
     border-radius: 14px;
     padding: 1.6rem 1.8rem;
     box-shadow: 0 0 18px #0007 inset;
     cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    margin-bottom: 1.5rem;
     color: silver;
     font-weight: 700;
     text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
   }
-  .cert-card:hover {
-    transform: scale(1.07);
-    z-index: 10;
+  #certificates .cert-card:hover {
     background: #444;
     color: #eee;
   }
-  .cert-hover {
+  #certificates .cert-card .cert-text {
+    transition: opacity 0.3s ease;
+  }
+  #certificates .cert-card:hover .cert-text {
+    opacity: 0;
+  }
+  #certificates .cert-card .cert-hover {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: #222b3ddd;
     color: #ddd;
-    opacity: 0;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
@@ -210,22 +260,25 @@
     text-align: center;
     font-size: 0.9rem;
     border-radius: 14px;
+    opacity: 0;
     transition: opacity 0.35s ease;
   }
-  .cert-card:hover .cert-hover {
+  #certificates .cert-card:hover .cert-hover {
     opacity: 1;
   }
 
   /* Responsive tweaks */
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
+    #education-certificates {
+      flex-direction: column;
+    }
+    #education, #certificates {
+      flex: 1 1 100%;
+    }
     header {
       flex-direction: column;
       font-size: 1.3rem;
       gap: 0.5rem;
-    }
-    .project-hover, .cert-hover {
-      font-size: 0.9rem;
-      padding: 1rem;
     }
   }
 </style>
@@ -252,8 +305,9 @@
 
   <section id="skills">
     <h2>Technical Skills</h2>
+
+    <h3>Data Analysis & Visualization</h3>
     <div class="skills-grid">
-      <!-- Data Analysis & Visualization -->
       <div class="skill" title="Excel"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
       <div class="skill" title="Tableau"><i class="fa-solid fa-chart-simple"></i><span>Tableau</span></div>
       <div class="skill" title="AWS QuickSight"><i class="fa-brands fa-aws"></i><span>AWS QuickSight</span></div>
@@ -270,8 +324,10 @@
       <div class="skill" title="Scikit-Learn"><i class="fa-solid fa-robot"></i><span>Scikit-Learn</span></div>
       <div class="skill" title="XGBoost"><i class="fa-solid fa-arrow-up"></i><span>XGBoost</span></div>
       <div class="skill" title="Sentence Transformers"><i class="fa-solid fa-language"></i><span>Sentence Transformers</span></div>
+    </div>
 
-      <!-- Generative AI & NLP -->
+    <h3>Generative AI & NLP</h3>
+    <div class="skills-grid">
       <div class="skill" title="LLMs"><i class="fa-solid fa-brain"></i><span>LLMs</span></div>
       <div class="skill" title="RAG"><i class="fa-solid fa-network-wired"></i><span>RAG</span></div>
       <div class="skill" title="Prompt Engineering"><i class="fa-solid fa-lightbulb"></i><span>Prompt Eng.</span></div>
@@ -280,13 +336,17 @@
       <div class="skill" title="OpenAI GPT-4/GPT-3.5"><i class="fa-brands fa-openai"></i><span>OpenAI GPT</span></div>
       <div class="skill" title="Anthropic LLMs"><i class="fa-solid fa-robot"></i><span>Anthropic</span></div>
       <div class="skill" title="Amazon Bedrock"><i class="fa-brands fa-aws"></i><span>Amazon Bedrock</span></div>
+    </div>
 
-      <!-- Programming Languages -->
+    <h3>Programming Languages</h3>
+    <div class="skills-grid">
       <div class="skill" title="Python"><i class="fa-brands fa-python"></i><span>Python</span></div>
       <div class="skill" title="SQL"><i class="fa-solid fa-database"></i><span>SQL</span></div>
       <div class="skill" title="JavaScript"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+    </div>
 
-      <!-- Development Tools -->
+    <h3>Development Tools</h3>
+    <div class="skills-grid">
       <div class="skill" title="Jupyter"><i class="fa-solid fa-book"></i><span>Jupyter</span></div>
       <div class="skill" title="PyCharm"><i class="fa-brands fa-python"></i><span>PyCharm</span></div>
       <div class="skill" title="FastAPI"><i class="fa-solid fa-server"></i><span>FastAPI</span></div>
@@ -296,16 +356,20 @@
       <div class="skill" title="Terraform"><i class="fa-solid fa-hammer"></i><span>Terraform</span></div>
       <div class="skill" title="Git"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
       <div class="skill" title="MLflow"><i class="fa-solid fa-chart-line"></i><span>MLflow</span></div>
+    </div>
 
-      <!-- MLOps & LLMOps -->
+    <h3>MLOps & LLMOps</h3>
+    <div class="skills-grid">
       <div class="skill" title="AWS SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
       <div class="skill" title="Azure ML"><i class="fa-brands fa-microsoft"></i><span>Azure ML</span></div>
       <div class="skill" title="Databricks"><i class="fa-solid fa-database"></i><span>Databricks</span></div>
       <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-truck-fast"></i><span>CI/CD Pipelines</span></div>
       <div class="skill" title="Kubeflow"><i class="fa-solid fa-cubes"></i><span>Kubeflow</span></div>
       <div class="skill" title="GitHub Actions"><i class="fa-brands fa-github"></i><span>GitHub Actions</span></div>
+    </div>
 
-      <!-- Data Engineering -->
+    <h3>Data Engineering</h3>
+    <div class="skills-grid">
       <div class="skill" title="Apache Spark"><i class="fa-brands fa-apache"></i><span>Spark</span></div>
       <div class="skill" title="Apache Kafka"><i class="fa-brands fa-java"></i><span>Kafka</span></div>
       <div class="skill" title="Apache Airflow"><i class="fa-solid fa-wind"></i><span>Airflow</span></div>
@@ -314,23 +378,27 @@
       <div class="skill" title="PostgreSQL"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
       <div class="skill" title="MySQL"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
       <div class="skill" title="MS SQL Server"><i class="fa-solid fa-database"></i><span>MS SQL Server</span></div>
-      <div class="skill" title="Amazon OpenSearch"><i class="fa-brands fa-amazon"></i><span>OpenSearch</span></div>
-      <div class="skill" title="Elasticsearch"><i class="fa-solid fa-search"></i><span>Elasticsearch</span></div>
+      <div class="skill" title="Amazon OpenSearch"><i class="fa-brands fa-aws"></i><span>OpenSearch</span></div>
+      <div class="skill" title="Elasticsearch"><i class="fa-brands fa-searchengin"></i><span>Elasticsearch</span></div>
+    </div>
 
-      <!-- Mathematics & Statistics -->
-      <div class="skill" title="Probability, Statistics"><i class="fa-solid fa-chart-pie"></i><span>Probability/Stats</span></div>
-      <div class="skill" title="Linear Algebra"><i class="fa-solid fa-square-root-variable"></i><span>Linear Algebra</span></div>
-      <div class="skill" title="Calculus"><i class="fa-solid fa-integral"></i><span>Calculus</span></div>
-      <div class="skill" title="Time Series Forecasting"><i class="fa-solid fa-clock"></i><span>Time Series</span></div>
+    <h3>Mathematics & Statistics</h3>
+    <div class="skills-grid">
+      <div class="skill" title="Probability"><i class="fa-solid fa-dice"></i><span>Probability</span></div>
+      <div class="skill" title="Statistics"><i class="fa-solid fa-chart-bar"></i><span>Statistics</span></div>
+      <div class="skill" title="Linear Algebra"><i class="fa-solid fa-vector-square"></i><span>Linear Algebra</span></div>
+      <div class="skill" title="Calculus"><i class="fa-solid fa-square-root-variable"></i><span>Calculus</span></div>
+      <div class="skill" title="Time Series Forecasting"><i class="fa-solid fa-clock"></i><span>Time Series Forecasting</span></div>
+    </div>
 
-      <!-- AWS Cloud Services -->
-      <div class="skill" title="SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
-      <div class="skill" title="S3"><i class="fa-solid fa-cloud-arrow-up"></i><span>S3</span></div>
-      <div class="skill" title="RDS"><i class="fa-solid fa-database"></i><span>RDS</span></div>
+    <h3>AWS Cloud Services</h3>
+    <div class="skills-grid">
+      <div class="skill" title="S3"><i class="fa-brands fa-aws"></i><span>S3</span></div>
+      <div class="skill" title="RDS"><i class="fa-brands fa-aws"></i><span>RDS</span></div>
       <div class="skill" title="DynamoDB"><i class="fa-brands fa-aws"></i><span>DynamoDB</span></div>
       <div class="skill" title="Step Functions"><i class="fa-solid fa-cogs"></i><span>Step Functions</span></div>
       <div class="skill" title="Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
-      <div class="skill" title="Athena"><i class="fa-solid fa-magnifying-glass"></i><span>Athena</span></div>
+      <div class="skill" title="Athena"><i class="fa-brands fa-aws"></i><span>Athena</span></div>
       <div class="skill" title="Redshift"><i class="fa-brands fa-aws"></i><span>Redshift</span></div>
       <div class="skill" title="QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
       <div class="skill" title="Lambda"><i class="fa-solid fa-lambda"></i><span>Lambda</span></div>
@@ -342,8 +410,10 @@
       <div class="skill" title="CodeCommit"><i class="fa-brands fa-aws"></i><span>CodeCommit</span></div>
       <div class="skill" title="CodeBuild"><i class="fa-brands fa-aws"></i><span>CodeBuild</span></div>
       <div class="skill" title="CodeDeploy"><i class="fa-brands fa-aws"></i><span>CodeDeploy</span></div>
+    </div>
 
-      <!-- Operating Systems -->
+    <h3>Operating Systems</h3>
+    <div class="skills-grid">
       <div class="skill" title="Windows"><i class="fa-brands fa-windows"></i><span>Windows</span></div>
       <div class="skill" title="Linux"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
     </div>
@@ -351,99 +421,103 @@
 
   <section id="experience">
     <h2>Experience</h2>
-    <div class="projects-grid">
-      <!-- Fidelity -->
-      <div class="project-card">
-        <div class="project-title">Fidelity Investments</div>
-        <div class="project-subtitle">Senior ML Engineer (ECCP) | May 2024 – Present</div>
-        <div class="project-hover">
-          Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.
-          <br /><br />
-          Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.
-          <br /><br />
-          Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.
+    <div class="projects-wrapper">
+      <div class="projects-grid">
+        <!-- Fidelity -->
+        <div class="project-card" tabindex="0" aria-label="Fidelity Investments - Senior ML Engineer ECCP">
+          <div class="project-title">Fidelity Investments</div>
+          <div class="project-subtitle">Senior ML Engineer (ECCP) | May 2024 – Present</div>
+          <div class="project-hover" role="tooltip" aria-hidden="true">
+            Architected hybrid-cloud RAG platform (OpenSearch & LangChain), improving retrieval accuracy 25% and cutting query resolution time 40%.
+            <br /><br />
+            Automated ingestion of 5M+ documents; built FastAPI microservices adopted by 12+ business units in 2 months.
+            <br /><br />
+            Fine-tuned GPT-4/3.5 & Anthropic LLMs via LoRA/QLoRA, reducing hallucinations 30% while ensuring compliance.
+          </div>
         </div>
-      </div>
 
-      <!-- Teladoc -->
-      <div class="project-card">
-        <div class="project-title">Teladoc Health</div>
-        <div class="project-subtitle">ML Engineer | Jul 2021 – Aug 2022</div>
-        <div class="project-hover">
-          Enhanced virtual health assistant AI, raising satisfaction scores 25%.
-          <br /><br />
-          Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.
-          <br /><br />
-          Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.
+        <!-- Teladoc -->
+        <div class="project-card" tabindex="0" aria-label="Teladoc Health - ML Engineer">
+          <div class="project-title">Teladoc Health</div>
+          <div class="project-subtitle">ML Engineer | Jul 2021 – Aug 2022</div>
+          <div class="project-hover" role="tooltip" aria-hidden="true">
+            Enhanced virtual health assistant AI, raising satisfaction scores 25%.
+            <br /><br />
+            Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.
+            <br /><br />
+            Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.
+          </div>
         </div>
-      </div>
 
-      <!-- DataBeat -->
-      <div class="project-card">
-        <div class="project-title">DataBeat</div>
-        <div class="project-subtitle">Data Engineer | Jun 2019 – Jun 2021</div>
-        <div class="project-hover">
-          Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.
-          <br /><br />
-          Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.
-          <br /><br />
-          Developed real-time ingestion workflows enabling instant search ranking updates.
+        <!-- DataBeat -->
+        <div class="project-card" tabindex="0" aria-label="DataBeat - Data Engineer">
+          <div class="project-title">DataBeat</div>
+          <div class="project-subtitle">Data Engineer | Jun 2019 – Jun 2021</div>
+          <div class="project-hover" role="tooltip" aria-hidden="true">
+            Built ETL pipelines (Spark, Kafka, Airflow) processing 500M+ search events/month; reduced latency from 24h to 3h.
+            <br /><br />
+            Integrated Elasticsearch with relevance tuning, improving search accuracy 40%.
+            <br /><br />
+            Developed real-time ingestion workflows enabling instant search ranking updates.
+          </div>
         </div>
-      </div>
 
-      <!-- iLink Digital -->
-      <div class="project-card">
-        <div class="project-title">iLink Digital</div>
-        <div class="project-subtitle">Python Developer | May 2017 – May 2019</div>
-        <div class="project-hover">
-          Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.
-          <br /><br />
-          Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.
-          <br /><br />
-          Developed ETL workflows with indexing/caching, improving query performance 70%.
+        <!-- iLink Digital -->
+        <div class="project-card" tabindex="0" aria-label="iLink Digital - Python Developer">
+          <div class="project-title">iLink Digital</div>
+          <div class="project-subtitle">Python Developer | May 2017 – May 2019</div>
+          <div class="project-hover" role="tooltip" aria-hidden="true">
+            Automated processing of 500K+ daily records, cutting workload 65% and saving $50K/year.
+            <br /><br />
+            Built REST APIs delivering KPIs in seconds, reducing reporting from 2 days to under 1 hour.
+            <br /><br />
+            Developed ETL workflows with indexing/caching, improving query performance 70%.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="education-certificates">
-    <h2>Education & Certifications</h2>
-    <div class="cards-grid">
-      <div class="cert-card" title="MS, Computer Science – Univ. of North Texas">
-        MS, Computer Science<br /> Univ. of North Texas
-        <div class="cert-hover">Master of Science in Computer Science from University of North Texas.</div>
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          MS, Computer Science
+          <span>University of North Texas</span>
+        </li>
+        <li>
+          BTech, Computer Science Engineering
+          <span>SRKR Engineering College</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="certificates">
+      <h2>Certifications</h2>
+      <div class="cert-card" tabindex="0" aria-label="AWS ML Specialty Certification">
+        <div class="cert-text">AWS ML Specialty</div>
+        <div class="cert-hover">AWS Certified Machine Learning - Specialty</div>
       </div>
-      <div class="cert-card" title="BTech, CSE – SRKR Engineering College">
-        BTech, Computer Science Engineering<br /> SRKR Engineering College
-        <div class="cert-hover">Bachelor of Technology in Computer Science & Engineering from SRKR Engineering College.</div>
+      <div class="cert-card" tabindex="0" aria-label="Azure AI Associate Certification">
+        <div class="cert-text">Azure AI Associate</div>
+        <div class="cert-hover">Microsoft Azure AI Fundamentals certification</div>
       </div>
-      <div class="cert-card" title="AWS ML Specialty">
-        AWS ML Specialty
-        <div class="cert-hover">AWS Certified Machine Learning - Specialty.</div>
+      <div class="cert-card" tabindex="0" aria-label="Generative AI DeepLearning.AI Certification">
+        <div class="cert-text">Generative AI (DeepLearning.AI)</div>
+        <div class="cert-hover">Completed Generative AI specialization by DeepLearning.AI</div>
       </div>
-      <div class="cert-card" title="Azure AI Associate">
-        Azure AI Associate
-        <div class="cert-hover">Microsoft Azure AI Fundamentals certification.</div>
+      <div class="cert-card" tabindex="0" aria-label="Mathematics for ML Imperial College Certification">
+        <div class="cert-text">Mathematics for ML (Imperial College)</div>
+        <div class="cert-hover">Completed Mathematics for Machine Learning course by Imperial College London</div>
       </div>
-      <div class="cert-card" title="Generative AI (DeepLearning.AI)">
-        Generative AI<br /> (DeepLearning.AI)
-        <div class="cert-hover">Completed Generative AI specialization by DeepLearning.AI.</div>
+      <div class="cert-card" tabindex="0" aria-label="Databases & SQL IBM Certification">
+        <div class="cert-text">Databases & SQL (IBM)</div>
+        <div class="cert-hover">Completed Databases & SQL course by IBM</div>
       </div>
-      <div class="cert-card" title="Mathematics for ML (Imperial College)">
-        Mathematics for ML<br /> (Imperial College)
-        <div class="cert-hover">Completed Mathematics for Machine Learning course by Imperial College London.</div>
-      </div>
-      <div class="cert-card" title="Databases & SQL (IBM)">
-        Databases & SQL<br /> (IBM)
-        <div class="cert-hover">Completed Databases & SQL course by IBM.</div>
-      </div>
-    </div>
+    </section>
   </section>
 </main>
 
 </body>
 </html>
-
-
-
-
