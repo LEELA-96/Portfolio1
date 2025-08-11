@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Leela Prasad A - AI/ML Engineer Portfolio</title>
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  
   <style>
-    /* --- Reset and base --- */
+    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -17,54 +14,56 @@
       margin: 0; padding: 0;
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      background: url('https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
       background-size: cover;
-      color: #eee;
-      line-height: 1.5;
+      color: #333;
+      line-height: 1.6;
       overflow-x: hidden;
       position: relative;
       min-height: 100vh;
     }
-    /* Dark overlay for background */
+    /* Light translucent overlay */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(10, 10, 10, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       z-index: -1;
     }
 
-    /* --- Layout --- */
+    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0; left: 0; bottom: 0;
-      width: 300px;
-      background: rgba(255, 255, 255, 0.12);
+      width: 320px;
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: 2rem 2rem 3rem;
       display: flex;
       flex-direction: column;
-      color: #00e5ff;
-      box-shadow: 2px 0 20px rgba(0,0,0,0.5);
+      color: #1b2733;
+      box-shadow: 2px 0 20px rgba(0,0,0,0.1);
       overflow-y: auto;
       z-index: 10;
+      border-right: 1px solid #ccc;
     }
     .sidebar::-webkit-scrollbar {
       width: 8px;
     }
     .sidebar::-webkit-scrollbar-thumb {
-      background: rgba(0, 229, 255, 0.4);
+      background: rgba(27, 39, 51, 0.3);
       border-radius: 10px;
     }
-
     .sidebar .name {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.8rem;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2.8px;
       margin-bottom: 1rem;
-      color: #00e5ff;
+      color: #005f73;
       user-select: none;
       text-transform: uppercase;
     }
@@ -72,10 +71,10 @@
       font-weight: 600;
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
-      color: #a0f7ffcc;
+      color: #0a9396cc;
     }
     .sidebar .contact-info a {
-      color: #00e5ffcc;
+      color: #0a9396cc;
       text-decoration: none;
       word-break: break-word;
       display: block;
@@ -84,19 +83,19 @@
       transition: color 0.3s ease;
     }
     .sidebar .contact-info a:hover {
-      color: #00ffff;
+      color: #005f73;
       text-decoration: underline;
     }
 
+    /* Main content */
     main {
-      margin-left: 300px;
+      margin-left: 320px;
       padding: 2.5rem 3rem 3rem 3rem;
-      max-width: calc(100% - 300px);
+      max-width: calc(100% - 320px);
       overflow-y: auto;
       min-height: 100vh;
       scroll-behavior: smooth;
     }
-
     section {
       margin-bottom: 3.5rem;
     }
@@ -105,21 +104,21 @@
       font-weight: 900;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #00e5ff;
-      border-bottom: 2px solid #00e5ff;
+      color: #0077b6;
+      border-bottom: 3px solid #0077b6;
       padding-bottom: 0.3rem;
       user-select: none;
     }
 
-    /* --- Summary --- */
+    /* Summary */
     #summary p {
-      font-size: 1.05rem;
-      color: #ddd;
+      font-size: 1.1rem;
       max-width: 900px;
-      line-height: 1.6;
+      color: #222;
+      line-height: 1.65;
     }
 
-    /* --- Skills --- */
+    /* Skills */
     .skills-category {
       margin-bottom: 1.8rem;
     }
@@ -128,22 +127,22 @@
       font-weight: 700;
       font-size: 1.25rem;
       margin-bottom: 0.6rem;
-      color: #0ff;
+      color: #0081a7;
       user-select: none;
     }
     .skill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
     .skill {
-      background: rgba(0, 229, 255, 0.15);
+      background: #caf0f8;
       border-radius: 12px;
       padding: 6px 14px;
       font-weight: 600;
       font-size: 0.9rem;
-      color: #00e5ff;
-      box-shadow: 0 0 7px rgba(0, 229, 255, 0.3);
+      color: #023e8a;
+      box-shadow: 0 0 8px rgba(2, 62, 138, 0.3);
       cursor: default;
       transition: background-color 0.3s ease;
       user-select: none;
@@ -152,26 +151,25 @@
       gap: 6px;
     }
     .skill:hover {
-      background: rgba(0, 229, 255, 0.35);
-      box-shadow: 0 0 15px #00ffff;
+      background: #90e0ef;
+      box-shadow: 0 0 15px #0077b6;
     }
 
-    /* Optional: add icons using emoji or small inline svg for skills - can be added if needed */
-
-    /* --- Experience --- */
+    /* Experience */
     #experience {
       max-height: 520px;
       overflow-y: auto;
       padding-right: 1rem;
-      border: 1px solid #00e5ff44;
+      border: 1px solid #0077b644;
       border-radius: 10px;
-      background: rgba(0,0,0,0.2);
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+      background: #e0f7facc;
+      box-shadow: 0 0 15px rgba(0, 119, 182, 0.15);
+      color: #023e8a;
     }
     .exp-item {
       margin-bottom: 2rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid #00e5ff44;
+      border-bottom: 1px solid #0077b644;
     }
     .exp-item:last-child {
       border-bottom: none;
@@ -181,7 +179,7 @@
     .company {
       font-size: 1.5rem;
       font-weight: 900;
-      color: #00e5ff;
+      color: #0077b6;
       user-select: none;
       margin-bottom: 0.25rem;
     }
@@ -189,23 +187,23 @@
       font-weight: 600;
       font-size: 1.05rem;
       margin-bottom: 0.35rem;
-      color: #a0f7ffcc;
+      color: #023e8a;
     }
     .duration {
       font-size: 0.9rem;
       font-style: italic;
-      color: #7fdfffcc;
+      color: #0077b699;
       margin-bottom: 0.8rem;
       user-select: none;
     }
     .description {
-      font-size: 0.95rem;
-      color: #d7d7d7;
+      font-size: 1rem;
+      color: #03396c;
       white-space: pre-line;
       line-height: 1.5;
     }
 
-    /* --- Education & Certifications --- */
+    /* Education & Certifications */
     #education-certifications {
       display: flex;
       gap: 4rem;
@@ -214,13 +212,14 @@
     }
     #education, #certifications {
       flex: 1 1 300px;
-      background: rgba(0,0,0,0.25);
+      background: #caf0f8;
       padding: 1.7rem 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 119, 182, 0.3);
+      color: #023e8a;
     }
     #education h3, #certifications h3 {
-      color: #00e5ff;
+      color: #0077b6;
       font-weight: 700;
       font-size: 1.4rem;
       user-select: none;
@@ -228,7 +227,7 @@
     }
     #education p, #certifications ul {
       font-size: 1rem;
-      color: #ccc;
+      color: #023e8a;
       line-height: 1.5;
     }
     #certifications ul {
@@ -242,15 +241,15 @@
     }
     #certifications ul li::before {
       content: "✔ ";
-      color: #00e5ff;
+      color: #0077b6;
     }
 
-    /* --- LLM Pipeline Illustration next to Education & Certifications --- */
+    /* LLM Pipeline Illustration */
     #llm-illustration {
       flex: 1 1 300px;
-      background: url('https://images.unsplash.com/photo-1615031344776-6b2e3f92d6a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') no-repeat center center;
+      background: url('https://cdn-images-1.medium.com/max/1200/1*HFZhf9n8n1cz_WLg_Y-8VQ.png') no-repeat center center;
       background-size: contain;
-      opacity: 0.15;
+      opacity: 0.12;
       filter: grayscale(70%);
       border-radius: 15px;
       margin-top: 5px;
@@ -258,19 +257,20 @@
       pointer-events: none;
     }
 
-    /* --- Contact Section --- */
+    /* Contact */
     #contact h2 {
       margin-bottom: 1.2rem;
+      color: #0077b6;
     }
     .form-container {
       max-width: 720px;
       width: 100%;
       margin: auto;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       border-radius: 15px;
       overflow: hidden;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
     }
     .form-container iframe {
       width: 100%;
@@ -278,7 +278,7 @@
       border: none;
     }
 
-    /* --- Responsive --- */
+    /* Responsive */
     @media (max-width: 1000px) {
       main {
         margin-left: 0;
@@ -289,13 +289,14 @@
         width: 100%;
         height: auto;
         backdrop-filter: none;
-        background: rgba(0,0,0,0.9);
+        background: rgba(255, 255, 255, 0.9);
         padding-bottom: 1.5rem;
         box-shadow: none;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         overflow: visible;
+        border-right: none;
       }
       .sidebar .name {
         font-size: 1.8rem;
@@ -315,11 +316,9 @@
         justify-content: center;
       }
     }
-
   </style>
 </head>
 <body>
-
   <aside class="sidebar" role="complementary" aria-label="Sidebar with personal info">
     <div class="name" tabindex="0">Leela Prasad A</div>
     <div class="title" tabindex="0">Senior AI/ML Engineer – AWS Certified</div>
@@ -339,7 +338,7 @@
 
     <section id="skills" aria-label="Technical skills">
       <h2>Technical Skills</h2>
-      
+      <!-- Data Analysis & Visualization -->
       <div class="skills-category">
         <h3>Data Analysis & Visualization</h3>
         <div class="skill-list">
@@ -361,6 +360,7 @@
           <span class="skill">Sentence Transformers</span>
         </div>
       </div>
+      <!-- Generative AI & NLP -->
       <div class="skills-category">
         <h3>Generative AI & NLP</h3>
         <div class="skill-list">
@@ -376,6 +376,7 @@
           <span class="skill">Amazon Bedrock</span>
         </div>
       </div>
+      <!-- Programming Languages -->
       <div class="skills-category">
         <h3>Programming Languages</h3>
         <div class="skill-list">
@@ -384,6 +385,7 @@
           <span class="skill">JavaScript</span>
         </div>
       </div>
+      <!-- Development Tools -->
       <div class="skills-category">
         <h3>Development Tools</h3>
         <div class="skill-list">
@@ -401,6 +403,7 @@
           <span class="skill">MLflow</span>
         </div>
       </div>
+      <!-- MLOps & LLMOps -->
       <div class="skills-category">
         <h3>MLOps & LLMOps</h3>
         <div class="skill-list">
@@ -413,6 +416,7 @@
           <span class="skill">GitHub Actions</span>
         </div>
       </div>
+      <!-- Data Engineering -->
       <div class="skills-category">
         <h3>Data Engineering</h3>
         <div class="skill-list">
@@ -428,6 +432,7 @@
           <span class="skill">Elasticsearch</span>
         </div>
       </div>
+      <!-- Mathematics & Statistics -->
       <div class="skills-category">
         <h3>Mathematics & Statistics</h3>
         <div class="skill-list">
@@ -438,6 +443,7 @@
           <span class="skill">Time Series Forecasting (ARIMA, SARIMA, Prophet, LSTM)</span>
         </div>
       </div>
+      <!-- AWS Cloud Services -->
       <div class="skills-category">
         <h3>AWS Cloud Services</h3>
         <div class="skill-list">
@@ -461,6 +467,7 @@
           <span class="skill">CodeDeploy</span>
         </div>
       </div>
+      <!-- Operating Systems -->
       <div class="skills-category">
         <h3>Operating Systems</h3>
         <div class="skill-list">
@@ -558,6 +565,7 @@
 
 </body>
 </html>
+
 
 
 
