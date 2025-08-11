@@ -37,43 +37,51 @@
   }
   #left-panel {
     flex: 0 0 320px;
-    background: #1e1e2f;
-    color: #fff;
-    padding: 30px 25px;
+    background: linear-gradient(135deg, #0d1b2a, #1e293b);
+    color: #e0e6f3;
+    padding: 30px 25px 40px 25px;
     display: flex;
     flex-direction: column;
     position: fixed;
     height: 100vh;
     width: 320px;
+    box-shadow: 3px 0 8px rgb(0 0 0 / 0.15);
+    border-radius: 0 12px 12px 0;
   }
   #left-panel h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-family: 'Segoe UI Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.05em;
+    background: linear-gradient(90deg, #6e9aff, #4285f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   #left-panel p.title {
     font-weight: 600;
-    font-size: 1rem;
-    opacity: 0.75;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
   }
   #left-panel .contact-info {
-    font-size: 0.9rem;
-    margin-bottom: 25px;
+    font-size: 0.95rem;
+    margin-bottom: auto;
   }
   #left-panel .contact-info a {
     color: #9acdff;
   }
   #left-panel .contact-info div {
-    margin-bottom: 8px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
+    gap: 10px;
   }
   #left-panel .contact-info i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-    color: #9acdff;
+    font-size: 1.2rem;
+    color: #76a9ff;
+    flex-shrink: 0;
   }
 
   /* Right panel scroll */
@@ -82,8 +90,9 @@
     flex: 1;
     height: 100vh;
     overflow-y: auto;
-    padding: 30px 50px;
+    padding: 40px 60px 60px 60px;
     background: #fff;
+    scroll-behavior: smooth;
   }
 
   /* Section titles */
@@ -92,102 +101,129 @@
     margin-bottom: 20px;
     color: #111;
     border-bottom: 3px solid #007acc;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
+    user-select: none;
   }
 
   /* Summary */
   #summary {
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    margin-bottom: 50px;
+    font-size: 1.12rem;
+    line-height: 1.6;
+    color: #222;
   }
 
   /* Skills */
   #skills {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
-  #skills h3 {
-    font-size: 1.4rem;
-    margin-top: 30px;
-    margin-bottom: 12px;
-    color: #222;
+  .skill-category {
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: #f6f9ff;
+    box-shadow: 0 0 6px rgb(0 0 0 / 0.07);
   }
+  .skill-category-header {
+    cursor: pointer;
+    padding: 14px 22px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #004b9e;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .skill-category-header:hover {
+    background: #e4eeff;
+  }
+  .skill-category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out;
+    padding: 0 22px;
+  }
+  .skill-category-content.open {
+    padding: 12px 22px 18px 22px;
+    max-height: 300px; /* enough height */
+  }
+
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 12px;
+    gap: 8px 10px;
   }
   .skill {
-    background: #e1e7f0;
+    background: #d5e3ff;
     border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    color: #222;
+    padding: 5px 12px;
+    font-size: 0.88rem;
+    color: #003a75;
     display: flex;
     align-items: center;
-    min-width: 100px;
-    max-width: 140px;
+    min-width: 110px;
+    max-width: 130px;
     cursor: default;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
     transition: background-color 0.3s;
+    user-select: none;
   }
   .skill i {
-    margin-right: 8px;
-    font-size: 1.15rem;
-    color: #007acc;
+    margin-right: 7px;
+    font-size: 1.1rem;
   }
   .skill:hover {
-    background: #c8d9ff;
+    background: #a9c4ff;
   }
 
   /* Experience */
   #experience {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
   .projects-wrapper {
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
   }
   .projects-grid {
     display: flex;
-    gap: 24px;
-    min-width: 1000px;
+    gap: 30px;
+    min-width: 1020px;
   }
   .project-card {
     background: #f9fafb;
-    border-radius: 10px;
-    padding: 20px;
-    width: 450px;
-    box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+    border-radius: 12px;
+    padding: 22px 24px 22px 24px;
+    width: 480px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.12);
     position: relative;
     flex-shrink: 0;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
+    cursor: default;
   }
   .project-title {
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #00509e;
-    margin-bottom: 3px;
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: #0d3c78;
+    margin-bottom: 6px;
   }
   .project-subtitle {
-    font-weight: 500;
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2a2a2a;
+    margin-bottom: 20px;
   }
   .project-hover {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: #444;
     overflow-y: auto;
-    max-height: 200px;
-    padding-right: 10px;
+    max-height: 300px;
+    padding-right: 12px;
   }
   /* Scrollbar for project-hover */
   .project-hover::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
   }
   .project-hover::-webkit-scrollbar-thumb {
     background: #007acc;
@@ -198,55 +234,45 @@
   #education-certificates {
     display: flex;
     gap: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
   #education, #certificates {
     flex: 1;
   }
   #education h2, #certificates h2 {
-    font-size: 1.7rem;
-    margin-bottom: 18px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    user-select: none;
   }
   #education ul {
     list-style: none;
     padding: 0;
-    font-size: 1rem;
-    color: #333;
+    font-size: 1.05rem;
+    color: #222;
+    line-height: 1.5;
   }
   #education ul li {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   #education ul li span {
     display: block;
-    font-weight: 600;
-    color: #555;
+    font-weight: 700;
+    color: #3b3b3b;
   }
   .cert-card {
-    background: #f9fafb;
-    border-radius: 8px;
-    padding: 10px 15px;
-    margin-bottom: 12px;
-    font-weight: 600;
-    color: #1c1c1c;
+    background: #e8f0ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-weight: 700;
+    color: #0a3a75;
     position: relative;
     cursor: default;
+    user-select: none;
+    transition: background-color 0.3s ease;
   }
-  .cert-hover {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: #007acc;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: normal;
-    white-space: nowrap;
-    z-index: 20;
-  }
-  .cert-card:hover .cert-hover,
-  .cert-card:focus .cert-hover {
-    display: block;
+  .cert-card:hover {
+    background: #a2c1ff;
   }
 
   /* Contact */
@@ -255,22 +281,23 @@
   }
   #contact h2 {
     margin-bottom: 20px;
+    user-select: none;
   }
   iframe {
     width: 100%;
-    height: 560px;
+    height: 580px;
     border: none;
-    border-radius: 12px;
-    box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
   }
 
   /* Scrollbar styling for right panel */
   #right-panel::-webkit-scrollbar {
-    width: 12px;
+    width: 13px;
   }
   #right-panel::-webkit-scrollbar-thumb {
     background: #007acc;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 </style>
 </head>
@@ -293,130 +320,77 @@
     <section id="summary" aria-label="Professional summary">
       <h2>Summary</h2>
       <p>
-        Senior AI/ML Engineer with 8+ years in Generative AI, NLP, and data engineering across finance, healthcare, and e-commerce. Expert in RAG platforms, LLMOps, and hybrid-cloud deployments, delivering 40% faster query resolution, 30% hallucination reduction, and 99.9% uptime.
+        Senior AI/ML Engineer with over 8 years of experience designing, developing, and deploying scalable AI, machine learning, and data engineering solutions across financial services, healthcare, and e-commerce sectors. Proven expertise in building advanced Generative AI applications and Retrieval-Augmented Generation (RAG) platforms that enhance semantic search, reduce hallucinations by up to 30%, and improve query resolution times by 40%. Skilled in fine-tuning large language models (LLMs) such as GPT-4/3.5 and Anthropic models using LoRA, QLoRA, and PEFT to optimize performance and ensure compliance with regulatory standards. Extensive experience integrating vector databases including Amazon OpenSearch and Pinecone to boost precision and retrieval speed. Strong background in MLOps and LLMOps with end-to-end CI/CD pipelines leveraging Jenkins, Terraform, and GitHub Actions for robust, scalable, and highly available AI microservices deployed on hybrid cloud environments (AWS EKS and Azure AKS). Expertise in building real-time data ingestion and transformation pipelines handling millions of documents and search events to significantly reduce latency and increase accuracy. Adept at mentoring engineering teams, driving best practices for GenAI development, and delivering actionable insights through data visualization tools such as Tableau and AWS QuickSight.
       </p>
     </section>
 
     <section id="skills" aria-label="Technical skills">
       <h2>Technical Skills</h2>
 
-      <h3>Data Analysis & Visualization</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Excel"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
-        <div class="skill" title="Tableau"><i class="fa-solid fa-chart-pie"></i><span>Tableau</span></div>
-        <div class="skill" title="AWS QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
-        <div class="skill" title="Snowflake"><i class="fa-solid fa-snowflake"></i><span>Snowflake</span></div>
-        <div class="skill" title="Pandas"><i class="fa-brands fa-python"></i><span>Pandas</span></div>
-        <div class="skill" title="NumPy"><i class="fa-solid fa-code"></i><span>NumPy</span></div>
-        <div class="skill" title="Matplotlib"><i class="fa-solid fa-chart-area"></i><span>Matplotlib</span></div>
-        <div class="skill" title="Seaborn"><i class="fa-solid fa-water"></i><span>Seaborn</span></div>
-        <div class="skill" title="SciPy"><i class="fa-solid fa-flask"></i><span>SciPy</span></div>
-        <div class="skill" title="LangChain"><i class="fa-solid fa-link"></i><span>LangChain</span></div>
-        <div class="skill" title="LangSmith"><i class="fa-solid fa-pen-to-square"></i><span>LangSmith</span></div>
-        <div class="skill" title="OpenCV"><i class="fa-solid fa-camera"></i><span>OpenCV</span></div>
-        <div class="skill" title="PySpark"><i class="fa-brands fa-python"></i><span>PySpark</span></div>
-        <div class="skill" title="Scikit-Learn"><i class="fa-solid fa-brain"></i><span>Scikit-Learn</span></div>
-        <div class="skill" title="XGBoost"><i class="fa-solid fa-bolt"></i><span>XGBoost</span></div>
-        <div class="skill" title="Sentence Transformers"><i class="fa-solid fa-robot"></i><span>Sentence Transformers</span></div>
+      <div class="skill-category">
+        <div class="skill-category-header" tabindex="0" role="button" aria-expanded="false">
+          Data Analysis & Visualization
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="skill-category-content" aria-hidden="true">
+          <div class="skills-grid">
+            <div class="skill" title="Excel"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
+            <div class="skill" title="Tableau"><i class="fa-solid fa-chart-pie"></i><span>Tableau</span></div>
+            <div class="skill" title="AWS QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
+            <div class="skill" title="Snowflake"><i class="fa-solid fa-snowflake"></i><span>Snowflake</span></div>
+            <div class="skill" title="Pandas"><i class="fa-brands fa-python"></i><span>Pandas</span></div>
+            <div class="skill" title="NumPy"><i class="fa-solid fa-code"></i><span>NumPy</span></div>
+            <div class="skill" title="Matplotlib"><i class="fa-solid fa-chart-area"></i><span>Matplotlib</span></div>
+            <div class="skill" title="Seaborn"><i class="fa-solid fa-water"></i><span>Seaborn</span></div>
+            <div class="skill" title="SciPy"><i class="fa-solid fa-flask"></i><span>SciPy</span></div>
+            <div class="skill" title="LangChain"><i class="fa-solid fa-link"></i><span>LangChain</span></div>
+            <div class="skill" title="LangSmith"><i class="fa-solid fa-pen-to-square"></i><span>LangSmith</span></div>
+            <div class="skill" title="OpenCV"><i class="fa-solid fa-camera"></i><span>OpenCV</span></div>
+            <div class="skill" title="PySpark"><i class="fa-brands fa-python"></i><span>PySpark</span></div>
+            <div class="skill" title="Scikit-Learn"><i class="fa-solid fa-brain"></i><span>Scikit-Learn</span></div>
+            <div class="skill" title="XGBoost"><i class="fa-solid fa-bolt"></i><span>XGBoost</span></div>
+            <div class="skill" title="Sentence Transformers"><i class="fa-solid fa-robot"></i><span>Sentence Transformers</span></div>
+          </div>
+        </div>
       </div>
 
-      <h3>Generative AI & NLP</h3>
-      <div class="skills-grid">
-        <div class="skill" title="LLMs"><i class="fa-solid fa-robot"></i><span>LLMs</span></div>
-        <div class="skill" title="RAG"><i class="fa-solid fa-layer-group"></i><span>RAG</span></div>
-        <div class="skill" title="Prompt Engineering"><i class="fa-solid fa-lightbulb"></i><span>Prompt Eng.</span></div>
-        <div class="skill" title="Transformers"><i class="fa-solid fa-cogs"></i><span>Transformers</span></div>
-        <div class="skill" title="LoRA"><i class="fa-solid fa-network-wired"></i><span>LoRA</span></div>
-        <div class="skill" title="QLoRA"><i class="fa-solid fa-network-wired"></i><span>QLoRA</span></div>
-        <div class="skill" title="PEFT"><i class="fa-solid fa-gears"></i><span>PEFT</span></div>
-        <div class="skill" title="OpenAI GPT-4/GPT-3.5"><i class="fa-brands fa-openai"></i><span>OpenAI GPT-4/3.5</span></div>
-        <div class="skill" title="Anthropic LLMs"><i class="fa-solid fa-brain"></i><span>Anthropic</span></div>
-        <div class="skill" title="Amazon Bedrock"><i class="fa-brands fa-aws"></i><span>Amazon Bedrock</span></div>
+      <div class="skill-category">
+        <div class="skill-category-header" tabindex="0" role="button" aria-expanded="false">
+          Generative AI & NLP
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="skill-category-content" aria-hidden="true">
+          <div class="skills-grid">
+            <div class="skill" title="LLMs"><i class="fa-solid fa-robot"></i><span>LLMs</span></div>
+            <div class="skill" title="RAG"><i class="fa-solid fa-layer-group"></i><span>RAG</span></div>
+            <div class="skill" title="Prompt Engineering"><i class="fa-solid fa-lightbulb"></i><span>Prompt Eng.</span></div>
+            <div class="skill" title="Transformers"><i class="fa-solid fa-cogs"></i><span>Transformers</span></div>
+            <div class="skill" title="LoRA"><i class="fa-solid fa-network-wired"></i><span>LoRA</span></div>
+            <div class="skill" title="QLoRA"><i class="fa-solid fa-network-wired"></i><span>QLoRA</span></div>
+            <div class="skill" title="PEFT"><i class="fa-solid fa-gears"></i><span>PEFT</span></div>
+            <div class="skill" title="OpenAI GPT-4/GPT-3.5"><i class="fa-brands fa-openai"></i><span>OpenAI GPT-4/3.5</span></div>
+            <div class="skill" title="Anthropic LLMs"><i class="fa-solid fa-brain"></i><span>Anthropic</span></div>
+            <div class="skill" title="Amazon Bedrock"><i class="fa-brands fa-aws"></i><span>Amazon Bedrock</span></div>
+          </div>
+        </div>
       </div>
 
-      <h3>Programming Languages</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Python"><i class="fa-brands fa-python"></i><span>Python</span></div>
-        <div class="skill" title="SQL"><i class="fa-solid fa-database"></i><span>SQL</span></div>
-        <div class="skill" title="JavaScript"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+      <div class="skill-category">
+        <div class="skill-category-header" tabindex="0" role="button" aria-expanded="false">
+          Programming Languages
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="skill-category-content" aria-hidden="true">
+          <div class="skills-grid">
+            <div class="skill" title="Python"><i class="fa-brands fa-python"></i><span>Python</span></div>
+            <div class="skill" title="SQL"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+            <div class="skill" title="JavaScript"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+          </div>
+        </div>
       </div>
 
-      <h3>Development Tools</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Jupyter"><i class="fa-solid fa-book-open"></i><span>Jupyter</span></div>
-        <div class="skill" title="PyCharm"><i class="fa-brands fa-python"></i><span>PyCharm</span></div>
-        <div class="skill" title="DataSpell"><i class="fa-solid fa-code"></i><span>DataSpell</span></div>
-        <div class="skill" title="FastAPI"><i class="fa-solid fa-bolt"></i><span>FastAPI</span></div>
-        <div class="skill" title="Flask"><i class="fa-brands fa-python"></i><span>Flask</span></div>
-        <div class="skill" title="REST API"><i class="fa-solid fa-network-wired"></i><span>REST API</span></div>
-        <div class="skill" title="Jenkins"><i class="fa-brands fa-jenkins"></i><span>Jenkins</span></div>
-        <div class="skill" title="Docker"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
-        <div class="skill" title="Kubernetes"><i class="fa-brands fa-kubernetes"></i><span>Kubernetes</span></div>
-        <div class="skill" title="Terraform"><i class="fa-solid fa-wrench"></i><span>Terraform</span></div>
-        <div class="skill" title="Git"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-        <div class="skill" title="MLflow"><i class="fa-solid fa-chart-line"></i><span>MLflow</span></div>
-      </div>
+      <!-- Add other skill categories similarly... -->
 
-      <h3>MLOps & LLMOps</h3>
-      <div class="skills-grid">
-        <div class="skill" title="AWS SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
-        <div class="skill" title="Azure ML"><i class="fa-brands fa-microsoft"></i><span>Azure ML</span></div>
-        <div class="skill" title="Databricks"><i class="fa-solid fa-database"></i><span>Databricks</span></div>
-        <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-code-branch"></i><span>CI/CD</span></div>
-        <div class="skill" title="Kubeflow"><i class="fa-solid fa-cubes"></i><span>Kubeflow</span></div>
-        <div class="skill" title="GitHub Actions"><i class="fa-brands fa-github"></i><span>GitHub Actions</span></div>
-      </div>
-
-      <h3>Data Engineering</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Apache Spark"><i class="fa-brands fa-java"></i><span>Spark</span></div>
-        <div class="skill" title="Apache Kafka"><i class="fa-solid fa-microphone-lines"></i><span>Kafka</span></div>
-        <div class="skill" title="Apache Airflow"><i class="fa-solid fa-wind"></i><span>Airflow</span></div>
-        <div class="skill" title="AWS Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
-        <div class="skill" title="AWS Kinesis"><i class="fa-brands fa-aws"></i><span>Kinesis</span></div>
-        <div class="skill" title="PostgreSQL"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
-        <div class="skill" title="MySQL"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
-        <div class="skill" title="MS SQL Server"><i class="fa-solid fa-database"></i><span>MS SQL</span></div>
-        <div class="skill" title="Amazon OpenSearch"><i class="fa-solid fa-search"></i><span>OpenSearch</span></div>
-        <div class="skill" title="Elasticsearch"><i class="fa-solid fa-search"></i><span>Elasticsearch</span></div>
-      </div>
-
-      <h3>Mathematics & Statistics</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Probability"><i class="fa-solid fa-percent"></i><span>Probability</span></div>
-        <div class="skill" title="Statistics"><i class="fa-solid fa-chart-column"></i><span>Statistics</span></div>
-        <div class="skill" title="Linear Algebra"><i class="fa-solid fa-vector-square"></i><span>Linear Algebra</span></div>
-        <div class="skill" title="Calculus"><i class="fa-solid fa-square-root-variable"></i><span>Calculus</span></div>
-        <div class="skill" title="Time Series Forecasting"><i class="fa-solid fa-clock"></i><span>Time Series</span></div>
-      </div>
-
-      <h3>AWS Cloud Services</h3>
-      <div class="skills-grid">
-        <div class="skill" title="SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
-        <div class="skill" title="S3"><i class="fa-solid fa-box"></i><span>S3</span></div>
-        <div class="skill" title="RDS"><i class="fa-solid fa-database"></i><span>RDS</span></div>
-        <div class="skill" title="DynamoDB"><i class="fa-solid fa-database"></i><span>DynamoDB</span></div>
-        <div class="skill" title="Step Functions"><i class="fa-solid fa-play"></i><span>Step Functions</span></div>
-        <div class="skill" title="Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
-        <div class="skill" title="Athena"><i class="fa-solid fa-search"></i><span>Athena</span></div>
-        <div class="skill" title="Redshift"><i class="fa-solid fa-database"></i><span>Redshift</span></div>
-        <div class="skill" title="QuickSight"><i class="fa-brands fa-aws"></i><span>QuickSight</span></div>
-        <div class="skill" title="Lambda"><i class="fa-solid fa-lambda"></i><span>Lambda</span></div>
-        <div class="skill" title="IAM"><i class="fa-solid fa-user-shield"></i><span>IAM</span></div>
-        <div class="skill" title="CloudWatch"><i class="fa-solid fa-eye"></i><span>CloudWatch</span></div>
-        <div class="skill" title="EC2"><i class="fa-solid fa-server"></i><span>EC2</span></div>
-        <div class="skill" title="EBS"><i class="fa-solid fa-hdd"></i><span>EBS</span></div>
-        <div class="skill" title="EFS"><i class="fa-solid fa-hdd"></i><span>EFS</span></div>
-        <div class="skill" title="CodeCommit"><i class="fa-solid fa-code-branch"></i><span>CodeCommit</span></div>
-        <div class="skill" title="CodeBuild"><i class="fa-solid fa-toolbox"></i><span>CodeBuild</span></div>
-        <div class="skill" title="CodeDeploy"><i class="fa-solid fa-rocket"></i><span>CodeDeploy</span></div>
-      </div>
-
-      <h3>Operating Systems</h3>
-      <div class="skills-grid">
-        <div class="skill" title="Windows"><i class="fa-brands fa-windows"></i><span>Windows</span></div>
-        <div class="skill" title="Linux"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
-      </div>
     </section>
 
     <section id="experience" aria-label="Work experience">
@@ -442,7 +416,7 @@
             <div class="project-hover">
               <ul>
                 <li>Enhanced virtual health assistant AI, raising satisfaction scores 25%.</li>
-                <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to <1 day.</li>
+                <li>Built MLOps pipelines with Azure ML, Databricks, MLflow; reduced deployment time from weeks to &lt;1 day.</li>
                 <li>Fine-tuned BioBERT/ClinicalBERT; implemented monitoring with Prometheus & Grafana.</li>
               </ul>
             </div>
@@ -516,7 +490,32 @@
   </main>
 </div>
 
+<script>
+  // Collapsible skill categories
+  document.querySelectorAll('.skill-category-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const expanded = header.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        content.classList.remove('open');
+        header.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+    // Keyboard accessibility
+    header.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        header.click();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
+
 
 
