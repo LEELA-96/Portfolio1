@@ -16,6 +16,7 @@
     background: linear-gradient(135deg, #222, #555);
     color: #ddd;
     line-height: 1.6;
+    min-height: 100vh;
   }
   a {
     color: #ccc;
@@ -32,9 +33,9 @@
     background: rgba(192, 192, 192, 0.95);
     backdrop-filter: saturate(180%) blur(15px);
     color: #111;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     font-weight: 900;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     letter-spacing: 2px;
     z-index: 1000;
     display: flex;
@@ -48,74 +49,76 @@
     user-select: none;
   }
   header .contact {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #555;
   }
   header .contact span {
-    margin-left: 1.2rem;
+    margin-left: 1.5rem;
   }
   header .contact a {
     color: #555;
   }
 
   main {
-    max-width: 960px;
-    margin: 2rem auto 4rem;
-    padding: 0 1rem;
+    max-width: none;
+    padding: 2rem 5vw;
+    margin: 0 auto;
+    width: 100%;
   }
   section {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     background: rgba(255 255 255 / 0.07);
-    padding: 1.6rem 2rem;
+    padding: 2rem 3rem;
     border-radius: 12px;
     box-shadow: 0 0 30px #0008 inset;
+    max-width: 1400px;
   }
   h2 {
     font-weight: 900;
-    font-size: 1.9rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
     color: silver;
     border-bottom: 2px solid #888;
-    padding-bottom: 0.3rem;
+    padding-bottom: 0.4rem;
   }
 
   /* SUMMARY */
   #summary p {
-    font-size: 1.05rem;
-    max-width: 860px;
+    font-size: 1.1rem;
+    max-width: 1200px;
   }
 
   /* SKILLS */
   #skills > h3 {
-    margin-top: 2rem;
+    margin-top: 2.2rem;
     margin-bottom: 1rem;
     color: #bbb;
     font-weight: 700;
     border-bottom: 1px solid #555;
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.3rem;
   }
   #skills .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-    gap: 1rem 2rem;
+    gap: 1.3rem 2.4rem;
   }
   .skill {
     background: rgba(255 255 255 / 0.12);
     border-radius: 10px;
-    padding: 1rem 1.2rem;
+    padding: 1.2rem 1.4rem;
     text-align: center;
     box-shadow: 0 0 15px #0005 inset;
     transition: background 0.3s ease, transform 0.3s ease;
     cursor: default;
   }
   .skill:hover {
-    background: rgba(255 255 255 / 0.3);
+    background: rgba(255 255 255 / 0.35);
     transform: translateY(-5px);
   }
   .skill i {
     font-size: 2.4rem;
     color: silver;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
   .skill span {
     display: block;
@@ -131,31 +134,32 @@
   }
   #experience .projects-grid {
     display: flex;
-    gap: 2rem;
+    gap: 2.4rem;
     min-width: max-content;
   }
   .project-card {
     position: relative;
     background: rgba(255 255 255 / 0.08);
     border-radius: 14px;
-    padding: 1.8rem 2rem;
+    padding: 2rem 2.4rem;
     box-shadow: 0 0 20px #0007 inset;
     cursor: pointer;
     overflow: visible;
-    flex: 0 0 350px;
+    flex: 0 0 420px;
     display: flex;
     flex-direction: column;
+    min-height: 350px;
   }
   .project-title {
-    font-weight: 800;
-    font-size: 1.15rem;
+    font-weight: 900;
+    font-size: 1.3rem;
     color: silver;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
   }
   .project-subtitle {
     font-style: italic;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
     color: #bbb;
   }
   .project-hover {
@@ -164,20 +168,20 @@
     background: #111c29dd;
     color: #eee;
     opacity: 0;
-    padding: 1.4rem 1.8rem;
+    padding: 2rem 2.4rem;
     border-radius: 14px;
     overflow-y: auto;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.5;
     transition: opacity 0.35s ease;
     z-index: 15;
   }
   .project-card:hover .project-hover {
     opacity: 1;
   }
-  /* Make hover overlay scrollable */
+  /* Hover overlay scrollbars */
   .project-hover::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
   }
   .project-hover::-webkit-scrollbar-thumb {
     background-color: #444;
@@ -190,14 +194,15 @@
   /* EDUCATION & CERTIFICATES container */
   #education-certificates {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
     flex-wrap: wrap;
+    max-width: 1400px;
   }
 
   #education, #certificates {
     flex: 1 1 45%;
     background: rgba(255 255 255 / 0.07);
-    padding: 1.6rem 2rem;
+    padding: 2rem 3rem;
     border-radius: 12px;
     box-shadow: 0 0 30px #0008 inset;
   }
@@ -209,19 +214,20 @@
   #education ul {
     list-style: none;
     padding-left: 0;
-    margin-top: 1rem;
+    margin-top: 1.4rem;
   }
   #education li {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     color: silver;
     font-weight: 700;
+    font-size: 1.1rem;
   }
   #education li span {
     font-weight: 400;
     display: block;
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
     color: #bbb;
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   /* CERTIFICATES */
@@ -229,14 +235,15 @@
     position: relative;
     background: rgba(255 255 255 / 0.08);
     border-radius: 14px;
-    padding: 1.6rem 1.8rem;
+    padding: 1.8rem 2.2rem;
     box-shadow: 0 0 18px #0007 inset;
     cursor: pointer;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: silver;
     font-weight: 700;
     text-align: center;
     transition: background 0.3s ease, color 0.3s ease;
+    font-size: 1.05rem;
   }
   #certificates .cert-card:hover {
     background: #444;
@@ -253,18 +260,71 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background: #222b3ddd;
     color: #ddd;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-radius: 14px;
     opacity: 0;
     transition: opacity 0.35s ease;
   }
   #certificates .cert-card:hover .cert-hover {
     opacity: 1;
+  }
+
+  /* GET IN TOUCH FORM */
+  #contact {
+    background: rgba(255 255 255 / 0.07);
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #0008 inset;
+    max-width: 1400px;
+  }
+  #contact h2 {
+    margin-top: 0;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem 3rem;
+    justify-content: start;
+  }
+  label {
+    display: block;
+    color: silver;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  input {
+    border-radius: 10px;
+    border: none;
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    background: rgba(255 255 255 / 0.15);
+    color: #eee;
+    width: 280px;
+    transition: background 0.25s ease;
+  }
+  input:focus {
+    outline: 2px solid silver;
+    background: rgba(255 255 255 / 0.35);
+  }
+  button {
+    background: silver;
+    border: none;
+    padding: 0.95rem 3.2rem;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: #222;
+    cursor: pointer;
+    margin-top: 1.8rem;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #eee;
   }
 
   /* Responsive tweaks */
@@ -274,11 +334,27 @@
     }
     #education, #certificates {
       flex: 1 1 100%;
+      margin-bottom: 2rem;
     }
     header {
       flex-direction: column;
-      font-size: 1.3rem;
-      gap: 0.5rem;
+      font-size: 1.4rem;
+      gap: 0.6rem;
+      padding: 1rem 2rem;
+    }
+    main {
+      padding: 2rem 3vw;
+    }
+    form {
+      justify-content: center;
+    }
+    input {
+      width: 100%;
+      max-width: 400px;
+    }
+    button {
+      width: 100%;
+      max-width: 400px;
     }
   }
 </style>
@@ -353,9 +429,10 @@
       <div class="skill" title="Flask"><i class="fa-solid fa-flask"></i><span>Flask</span></div>
       <div class="skill" title="Docker"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
       <div class="skill" title="Kubernetes"><i class="fa-brands fa-kubernetes"></i><span>Kubernetes</span></div>
-      <div class="skill" title="Terraform"><i class="fa-solid fa-hammer"></i><span>Terraform</span></div>
+      <div class="skill" title="Terraform"><i class="fa-solid fa-wrench"></i><span>Terraform</span></div>
       <div class="skill" title="Git"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
       <div class="skill" title="MLflow"><i class="fa-solid fa-chart-line"></i><span>MLflow</span></div>
+      <div class="skill" title="Jenkins"><i class="fa-brands fa-jenkins"></i><span>Jenkins</span></div>
     </div>
 
     <h3>MLOps & LLMOps</h3>
@@ -363,22 +440,22 @@
       <div class="skill" title="AWS SageMaker"><i class="fa-brands fa-aws"></i><span>SageMaker</span></div>
       <div class="skill" title="Azure ML"><i class="fa-brands fa-microsoft"></i><span>Azure ML</span></div>
       <div class="skill" title="Databricks"><i class="fa-solid fa-database"></i><span>Databricks</span></div>
-      <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-truck-fast"></i><span>CI/CD Pipelines</span></div>
+      <div class="skill" title="CI/CD Pipelines"><i class="fa-solid fa-code-branch"></i><span>CI/CD</span></div>
       <div class="skill" title="Kubeflow"><i class="fa-solid fa-cubes"></i><span>Kubeflow</span></div>
       <div class="skill" title="GitHub Actions"><i class="fa-brands fa-github"></i><span>GitHub Actions</span></div>
     </div>
 
     <h3>Data Engineering</h3>
     <div class="skills-grid">
-      <div class="skill" title="Apache Spark"><i class="fa-brands fa-apache"></i><span>Spark</span></div>
-      <div class="skill" title="Apache Kafka"><i class="fa-brands fa-java"></i><span>Kafka</span></div>
+      <div class="skill" title="Apache Spark"><i class="fa-brands fa-java"></i><span>Spark</span></div>
+      <div class="skill" title="Apache Kafka"><i class="fa-solid fa-microphone-lines"></i><span>Kafka</span></div>
       <div class="skill" title="Apache Airflow"><i class="fa-solid fa-wind"></i><span>Airflow</span></div>
       <div class="skill" title="AWS Glue"><i class="fa-brands fa-aws"></i><span>Glue</span></div>
       <div class="skill" title="AWS Kinesis"><i class="fa-brands fa-aws"></i><span>Kinesis</span></div>
       <div class="skill" title="PostgreSQL"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
       <div class="skill" title="MySQL"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
       <div class="skill" title="MS SQL Server"><i class="fa-solid fa-database"></i><span>MS SQL Server</span></div>
-      <div class="skill" title="Amazon OpenSearch"><i class="fa-brands fa-aws"></i><span>OpenSearch</span></div>
+      <div class="skill" title="OpenSearch"><i class="fa-brands fa-aws"></i><span>OpenSearch</span></div>
       <div class="skill" title="Elasticsearch"><i class="fa-brands fa-searchengin"></i><span>Elasticsearch</span></div>
     </div>
 
@@ -421,7 +498,7 @@
 
   <section id="experience">
     <h2>Experience</h2>
-    <div class="projects-wrapper">
+    <div class="projects-wrapper" aria-label="Experience Projects - horizontal scroll container" tabindex="0">
       <div class="projects-grid">
         <!-- Fidelity -->
         <div class="project-card" tabindex="0" aria-label="Fidelity Investments - Senior ML Engineer ECCP">
@@ -479,7 +556,7 @@
   </section>
 
   <section id="education-certificates">
-    <section id="education">
+    <section id="education" aria-label="Education">
       <h2>Education</h2>
       <ul>
         <li>
@@ -493,7 +570,7 @@
       </ul>
     </section>
 
-    <section id="certificates">
+    <section id="certificates" aria-label="Certifications">
       <h2>Certifications</h2>
       <div class="cert-card" tabindex="0" aria-label="AWS ML Specialty Certification">
         <div class="cert-text">AWS ML Specialty</div>
@@ -517,7 +594,25 @@
       </div>
     </section>
   </section>
+
+  <section id="contact" aria-label="Get in Touch Form">
+    <h2>Get in Touch</h2>
+    <!-- Replace the form below with your own Google Form embed or any preferred method -->
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSf9J4e8LUoFrq5l0NUcnLq3NqXtEpy6cPbtGkf9QAvLfXyLB7A/viewform?embedded=true"
+      width="100%"
+      height="560"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Contact Form"
+      aria-label="Google contact form"
+    >
+      Loading…
+    </iframe>
+  </section>
 </main>
 
 </body>
 </html>
+
